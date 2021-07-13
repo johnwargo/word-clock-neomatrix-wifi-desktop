@@ -1,27 +1,21 @@
-
-// function to generate the right "phrase" based on the time
-
+// Generates a mask representing the current time (approximately) as
+// a phrase (through the letters illiminated by the turned-on LED
+// in the NeoMatrix
 void displayTime(void) {
-
-  // get time from the RTC
-  //DateTime theTime = RTC.now();
-  //theTime = calculateTime(); // takes into account DST
-
-  // serial print current time
   /*
-  Serial.print(theTime.year(), DEC);
-  Serial.print('/');
-  Serial.print(theTime.month(), DEC);
-  Serial.print('/');
-  Serial.print(theTime.day(), DEC);
-  Serial.print(' ');
-  Serial.print(theTime.hour(), DEC);
-  Serial.print(':');
-  Serial.print(theTime.minute(), DEC);
-  Serial.print(':');
-  Serial.print(theTime.second(), DEC);
-  Serial.println();
+   * The capitalized values used below are defines (compiler constants)        
+   * which are replaced at compile time with the defined value which,        
+   * in this case, is a logical OR of the existing `mask` value with        
+   * the number value in the define. The result of this is that the        
+   * code repeatedly ORs the current mask with the different word        
+   * values as the code completes this big, huge, if/then statement
+   *         
+   * At the end of the process, the mask value contains an array
+   * highlighting all of the NeoPixel LEDs that should be turned   
+   * on to display the complete phrase on the NeoMatrix.
   */
+  // Start with an empty mask
+  mask = 0;
 
   // time we display the appropriate theTime.minute() counter
   if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
@@ -123,10 +117,7 @@ void displayTime(void) {
         TWELVE;
         break;
     }
-
-  }
-  else if ((theTime.minute() < 35) && (theTime.minute() > 4))
-  {
+  }  else if ((theTime.minute() < 35) && (theTime.minute() > 4))  {
     PAST;
     //Serial.print(" past ");
     switch (theTime.hour()) {
@@ -179,9 +170,7 @@ void displayTime(void) {
         TWELVE;
         break;
     }
-  }
-  else
-  {
+  }  else  {
     // if we are greater than 34 minutes past the hour then display
     // the next hour, as we will be displaying a 'to' sign
     TO;
@@ -238,14 +227,4 @@ void displayTime(void) {
     }
   }
   applyMask(); // apply phrase mask to colorshift function
-
 }
-
-
-
-
-
-
-
-
-

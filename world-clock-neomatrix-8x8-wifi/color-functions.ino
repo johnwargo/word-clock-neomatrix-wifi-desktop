@@ -19,18 +19,14 @@ void applyMask() {
   delay(SHIFTDELAY);
   j++; // move the colors forward
   j = j % (256 * 5);
-
-  // reset mask for next time
-  mask = 0;
 }
 
 // Input a value 0 to 255 to get a color value.
-// The colours are a transition r - g - b - back to r.
+// The colors are a transition r - g - b - back to r.
 uint32_t Wheel(byte WheelPos) {
 
   WheelPos = 255 - WheelPos;
   uint32_t wheelColor;
-
   if (WheelPos < 85) {
     wheelColor = matrix.Color(255 - WheelPos * 3, 0, WheelPos * 3);
   } else if (WheelPos < 170) {
@@ -51,12 +47,9 @@ uint32_t Wheel(byte WheelPos) {
   return (red << 8) | (green << 5) | (blue << 3) | 0xFF000000;
 }
 
-
 // Slightly different, this makes the rainbow equally distributed throughout
 void rainbowCycle(uint8_t wait) {
-  
   uint16_t i, j;
-
   for (j = 0; j < 256 * 5; j++) { // 5 cycles of all colors on wheel
     for (i = 0; i < matrix.numPixels(); i++) {
       matrix.setPixelColor(i, Wheel(((i * 256 / matrix.numPixels()) + j) & 255));
@@ -65,4 +58,3 @@ void rainbowCycle(uint8_t wait) {
     delay(wait);
   }
 }
-

@@ -1,14 +1,12 @@
- WORD CLOCK - NeoMatrix 8x8 Desktop Edition
-================
- by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall)
+# World Clock NeoMatrix 8x8 Wi-Fi Edition
 
-https://andydoro.com/wordclockdesktop/
+This repository contains an updated version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall). 
 
+[Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/).
+[Andy Doro World Clock Desktop](https://andydoro.com/wordclockdesktop/)
 [GitHub Repository](https://github.com/andydoro/WordClock-NeoMatrix8x8)
 
-[Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/)
 
-A word clock which uses NeoPixel RGB LEDs for a color shifting effect.
 
 
 Hardware:

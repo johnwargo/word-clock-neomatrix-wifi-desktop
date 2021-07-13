@@ -134,10 +134,7 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             NEO_MATRIX_ROWS + NEO_MATRIX_PROGRESSIVE,
                             NEO_GRBW        + NEO_KHZ800);
 
-
 void setup() {
-  // put your setup code here, to run once:
-
   //Serial for debugging
   //Serial.begin(9600);
 
@@ -187,7 +184,24 @@ void loop() {
   theTime = dst_rtc.calculateTime(RTC.now()); // takes into account DST
   // add 2.5 minutes to get better estimates
   theTime = theTime.unixtime() + 150;
+  printTimeValue(theTime);
+  
   adjustBrightness();
   displayTime();
   //mode_moon(); // uncomment to show moon mode instead!
+}
+
+void printTimeValue(DateTime timeVal){    
+    Serial.print(timeVal.year(), DEC);
+    Serial.print('/');
+    Serial.print(timeVal.month(), DEC);
+    Serial.print('/');
+    Serial.print(timeVal.day(), DEC);
+    Serial.print(' ');
+    Serial.print(timeVal.hour(), DEC);
+    Serial.print(':');
+    Serial.print(timeVal.minute(), DEC);
+    Serial.print(':');
+    Serial.print(timeVal.second(), DEC);
+    Serial.println();
 }
