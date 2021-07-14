@@ -86,7 +86,6 @@ uint64_t mask;
 #define RTCGND A2 // use this as DS1307 breakout ground 
 #define RTCPWR A3 // use this as DS1307 breakout power
 
-
 // brightness based on time of day- could try warmer colors at night?
 #define DAYBRIGHTNESS 40
 #define NIGHTBRIGHTNESS 20
@@ -94,7 +93,6 @@ uint64_t mask;
 // cutoff times for day / night brightness. feel free to modify.
 #define MORNINGCUTOFF 7  // when does daybrightness begin?   7am
 #define NIGHTCUTOFF   22 // when does nightbrightness begin? 10pm
-
 
 // define delays
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
@@ -119,7 +117,7 @@ int j;   // an integer for the color shifting effect
 #define OBSERVE_DST 1
 
 
-// Parameter 1 = number of pixels in strip
+// Parameter 1 = number of pixels in the strip
 // Parameter 2 = Arduino pin number (most are valid)
 // Parameter 3 = pixel type flags, add together as needed:
 //   NEO_KHZ800  800 KHz bitstream (most NeoPixel products w/WS2812 LEDs)

@@ -11,22 +11,32 @@ I forked the project because my personal implementation of the clock got way beh
 When I first started looking at the code in detail, it took me longer than I expected to figure out what the code was doing. There were some things in the wrong place (in my opinion), so I decided to refactor the code a bit as I worked on it. So far, I made the following changes:
 
 * Moved resetting the `mask` to the beginning of the function that actually manipulates the mask (`displayTime()`).
-* Moved the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 * Added a bunch of comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
-* (goal) Updated the readme with more detailed hardware requirements, configuration and setup instructions.
+* Added an option to reset the time stored in the realtime clock. The way the original sketch was written, once the sketch can see the RTC, it never updates the time from the compile date/time.
+
+**Goals** 
+
+* Update the readme with more detailed hardware requirements, configuration and setup instructions.
+* Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 
 
 
-Hardware:
--------
+## Hardware
 
+
+ - [Feather whatever]
+ - [Feather RTC]
  - [Trinket Pro 5V](https://www.adafruit.com/product/2000) (should work with other Arduino-compatibles with minor modifications) 
  - [DS1307 RTC breakout](https://www.adafruit.com/products/3296)
  - [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
  - LASER cut faceplate & enclosure
+ - Enclosure bolts
+ - Enclosure Nuts
+ - Feather mounting bolts
+ - Feather mounting nuts
 
-Software:
--------
+## Software
+
 
 This code requires the following libraries:
 
@@ -37,27 +47,25 @@ This code requires the following libraries:
  - [Adafruit_NeoMatrix](https://github.com/adafruit/Adafruit_NeoMatrix)
 
 
-Wiring:
--------
+## Wiring
 
  - Solder DS1307 breakout to Trinket Pro, A2 to GND, A3 to PWR, A4 to SDA, A5 to SCL  
    If you leave off / clip the unused SQW pin on the RTC breakout, the breakout can sit right on top of the Trinket Pro for a compact design! It'll be difficult to reach the Trinket Pro reset button, but you can activate the bootloader by plugging in the USB.
  - Solder NeoMatrix 5V to Trinket 5V, GND to GND, DIN to Trinket Pro pin 8.
 
+## Grid Pattern
 
-grid pattern:
--------
 
- ```
- A T W E N T Y D
- Q U A R T E R Y
- F I V E H A L F
- D P A S T O R O
- F I V E I G H T
- S I X T H R E E
- T W E L E V E N
- F O U R N I N E
- ```
+``` text
+A T W E N T Y D
+Q U A R T E R Y
+F I V E H A L F
+D P A S T O R O
+F I V E I G H T
+S I X T H R E E
+T W E L E V E N
+F O U R N I N E
+```
 
 Acknowledgements:
   - Thanks [Dano](https://github.com/danowall) for faceplate / 3D models & project inspiration! 
