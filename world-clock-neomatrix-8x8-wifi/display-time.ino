@@ -14,9 +14,7 @@ void displayTime(void) {
    * highlighting all of the NeoPixel LEDs that should be turned   
    * on to display the complete phrase on the NeoMatrix.
   */
-  // Start with an empty mask
-  mask = 0;
-
+  
   // time we display the appropriate theTime.minute() counter
   if ((theTime.minute() > 4) && (theTime.minute() < 10)) {
     MFIVE;

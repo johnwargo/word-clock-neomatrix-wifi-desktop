@@ -19,6 +19,11 @@ void applyMask() {
   delay(SHIFTDELAY);
   j++; // move the colors forward
   j = j % (256 * 5);
+
+  // Every time you put something on the display, 
+  // reset to an empty mask
+  mask = 0;
+
 }
 
 // Input a value 0 to 255 to get a color value.

@@ -53,9 +53,9 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_NeoMatrix.h>
 #include <Adafruit_NeoPixel.h>
+#include "config.h"
 
 // define how to write each of the words
-
 // 64-bit "mask" for each pixel in the matrix- is it on or off?
 uint64_t mask;
 
@@ -81,42 +81,12 @@ uint64_t mask;
 #define TWELVE   mask |= 0xF600
 #define ANDYDORO mask |= 0x8901008700000000
 
-// define pins
-#define NEOPIN 8  // connect to DIN on NeoMatrix 8x8
-#define RTCGND A2 // use this as DS1307 breakout ground 
-#define RTCPWR A3 // use this as DS1307 breakout power
-
-// brightness based on time of day- could try warmer colors at night?
-#define DAYBRIGHTNESS 40
-#define NIGHTBRIGHTNESS 20
-
-// cutoff times for day / night brightness. feel free to modify.
-#define MORNINGCUTOFF 7  // when does daybrightness begin?   7am
-#define NIGHTCUTOFF   22 // when does nightbrightness begin? 10pm
-
-// define delays
-#define FLASHDELAY 250  // delay for startup "flashWords" sequence
-#define SHIFTDELAY 100   // controls color shifting speed
-
-bool resetClock = true;
-//bool resetClock= false;
-
 RTC_DS1307 RTC; // Establish clock object
 DST_RTC dst_rtc; // DST object
-
-// Define US or EU rules for DST comment out as required. More countries could be added with different rules in DST_RTC.cpp
-const char rulesDST[] = "US"; // US DST rules
-// const char rulesDST[] = "EU";   // EU DST rules
 
 DateTime theTime; // Holds current clock time
 
 int j;   // an integer for the color shifting effect
-
-// Do you live in a country or territory that observes Daylight Saving Time?
-// https://en.wikipedia.org/wiki/Daylight_saving_time_by_country
-// Use 1 if you observe DST, 0 if you don't. This is programmed for DST in the US / Canada. If your territory's DST operates differently,
-// you'll need to modify the code in the calcTheTime() function to make this work properly.
-#define OBSERVE_DST 1
 
 // Parameter 1 = number of pixels in the strip
 // Parameter 2 = Arduino pin number (most are valid)
@@ -131,11 +101,12 @@ int j;   // an integer for the color shifting effect
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             NEO_MATRIX_TOP  + NEO_MATRIX_LEFT +
                             NEO_MATRIX_ROWS + NEO_MATRIX_PROGRESSIVE,
-                            NEO_GRBW        + NEO_KHZ800);
+                            LED_CONFIG);
 
 void setup() {
-  //Serial for debugging
-  //Serial.begin(9600);
+  // Serial for debugging
+  Serial.begin(115200);
+  delay(1000);
 
   // set pinmodes
   pinMode(NEOPIN, OUTPUT);
@@ -152,10 +123,14 @@ void setup() {
   Wire.begin();  // Begin I2C
   RTC.begin();   // begin clock
 
-  if (resetClock || !RTC.isrunning()) {
-    //    Serial.println("RTC is NOT running!");
+#ifdef RESETCLOCK
+  setTime();
+#else
+  if ( !RTC.isrunning()) {
+    Serial.println("RTC is NOT running!");
     setTime();
   }
+#endif
 
   matrix.begin();
   matrix.setBrightness(DAYBRIGHTNESS);
@@ -163,8 +138,8 @@ void setup() {
   matrix.show();
 
   // startup sequence... do colorwipe?
-  delay(500);
-  rainbowCycle(1);
+  //  delay(500);
+  //  rainbowCycle(1);
   delay(500);
   flashWords(); // briefly flash each word in sequence
   delay(500);
