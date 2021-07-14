@@ -12,9 +12,8 @@ I forked the project because my personal implementation of the clock got way beh
 
 When I first started looking at the code in detail, it took me longer than I expected to figure out what the code was doing. There were some things in the wrong place (in my opinion), so I decided to refactor the code a bit as I worked on it. So far, I made the following changes:
 
-* Moved resetting the `mask` to the beginning of the function that actually manipulates the mask (`displayTime()`).
-* Added a bunch of comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
 * Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
+* Added more comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
 
 **Goals** 
 
