@@ -14,6 +14,8 @@ When I first started looking at the code in detail, it took me longer than I exp
 
 * Moved resetting the `mask` to the beginning of the function that actually manipulates the mask (`displayTime()`).
 * Added a bunch of comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
+
+
 ~~* Added an option to reset the time stored in the realtime clock. The way the original sketch was written, once the sketch can see the RTC, it never updates the time from the compile date/time.~~
 
 **Goals** 
