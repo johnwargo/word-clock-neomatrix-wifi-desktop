@@ -98,6 +98,8 @@ uint64_t mask;
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
 #define SHIFTDELAY 100   // controls color shifting speed
 
+bool resetClock = true;
+//bool resetClock= false;
 
 RTC_DS1307 RTC; // Establish clock object
 DST_RTC dst_rtc; // DST object
@@ -115,7 +117,6 @@ int j;   // an integer for the color shifting effect
 // Use 1 if you observe DST, 0 if you don't. This is programmed for DST in the US / Canada. If your territory's DST operates differently,
 // you'll need to modify the code in the calcTheTime() function to make this work properly.
 #define OBSERVE_DST 1
-
 
 // Parameter 1 = number of pixels in the strip
 // Parameter 2 = Arduino pin number (most are valid)
@@ -151,17 +152,9 @@ void setup() {
   Wire.begin();  // Begin I2C
   RTC.begin();   // begin clock
 
-  if (! RTC.isrunning()) {
-    Serial.println("RTC is NOT running!");
-    // following line sets the RTC to the date & time this sketch was compiled
-    RTC.adjust(DateTime(__DATE__, __TIME__));
-    // DST? If we're in it, let's subtract an hour from the RTC time to keep our DST calculation correct. This gives us
-    // Standard Time which our DST check will add an hour back to if we're in DST.
-    DateTime standardTime = RTC.now();
-    if (dst_rtc.checkDST(standardTime) == true) { // check whether we're in DST right now. If we are, subtract an hour.
-      standardTime = standardTime.unixtime() - 3600;
-    }
-    RTC.adjust(standardTime);
+  if (resetClock || !RTC.isrunning()) {
+    //    Serial.println("RTC is NOT running!");
+    setTime();
   }
 
   matrix.begin();
@@ -183,23 +176,36 @@ void loop() {
   // add 2.5 minutes to get better estimates
   theTime = theTime.unixtime() + 150;
   printTimeValue(theTime);
-  
+
   adjustBrightness();
   displayTime();
   //mode_moon(); // uncomment to show moon mode instead!
 }
 
-void printTimeValue(DateTime timeVal){    
-    Serial.print(timeVal.year(), DEC);
-    Serial.print('/');
-    Serial.print(timeVal.month(), DEC);
-    Serial.print('/');
-    Serial.print(timeVal.day(), DEC);
-    Serial.print(' ');
-    Serial.print(timeVal.hour(), DEC);
-    Serial.print(':');
-    Serial.print(timeVal.minute(), DEC);
-    Serial.print(':');
-    Serial.print(timeVal.second(), DEC);
-    Serial.println();
+void setTime() {
+  Serial.println("Resetting RTC");
+  // following line sets the RTC to the date & time this sketch was compiled
+  RTC.adjust(DateTime(__DATE__, __TIME__));
+  // DST? If we're in it, let's subtract an hour from the RTC time to keep our DST calculation correct. This gives us
+  // Standard Time which our DST check will add an hour back to if we're in DST.
+  DateTime standardTime = RTC.now();
+  if (dst_rtc.checkDST(standardTime) == true) { // check whether we're in DST right now. If we are, subtract an hour.
+    standardTime = standardTime.unixtime() - 3600;
+  }
+  RTC.adjust(standardTime);
+}
+
+void printTimeValue(DateTime timeVal) {
+  Serial.print(timeVal.year(), DEC);
+  Serial.print('/');
+  Serial.print(timeVal.month(), DEC);
+  Serial.print('/');
+  Serial.print(timeVal.day(), DEC);
+  Serial.print(' ');
+  Serial.print(timeVal.hour(), DEC);
+  Serial.print(':');
+  Serial.print(timeVal.minute(), DEC);
+  Serial.print(':');
+  Serial.print(timeVal.second(), DEC);
+  Serial.println();
 }
