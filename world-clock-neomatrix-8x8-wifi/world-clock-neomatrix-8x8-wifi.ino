@@ -96,7 +96,6 @@ int j;   // an integer for the color shifting effect
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 //Adafruit_NeoPixel matrix = Adafruit_NeoPixel(64, NEOPIN, NEO_GRB + NEO_KHZ800);
-
 // configure for 8x8 neopixel matrix
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             NEO_MATRIX_TOP  + NEO_MATRIX_LEFT +
