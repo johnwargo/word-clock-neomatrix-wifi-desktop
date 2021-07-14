@@ -8,6 +8,8 @@ This repository contains an updated version of the [WORD CLOCK - NeoMatrix 8x8 D
 
 I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather device) so it can periodically update the realtime clock using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
 
+## Updates
+
 When I first started looking at the code in detail, it took me longer than I expected to figure out what the code was doing. There were some things in the wrong place (in my opinion), so I decided to refactor the code a bit as I worked on it. So far, I made the following changes:
 
 * Moved resetting the `mask` to the beginning of the function that actually manipulates the mask (`displayTime()`).
@@ -19,39 +21,35 @@ When I first started looking at the code in detail, it took me longer than I exp
 * Update the readme with more detailed hardware requirements, configuration and setup instructions.
 * Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 
-
-
 ## Hardware
 
-
- - [Feather whatever]
- - [Feather RTC]
- - [Trinket Pro 5V](https://www.adafruit.com/product/2000) (should work with other Arduino-compatibles with minor modifications) 
- - [DS1307 RTC breakout](https://www.adafruit.com/products/3296)
- - [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
- - LASER cut faceplate & enclosure
- - Enclosure bolts
- - Enclosure Nuts
- - Feather mounting bolts
- - Feather mounting nuts
+- [Feather whatever]
+- [Feather RTC]
+- [Trinket Pro 5V](https://www.adafruit.com/product/2000) (should work with other Arduino-compatibles with minor modifications) 
+- [DS1307 RTC breakout](https://www.adafruit.com/products/3296)
+- [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
+- LASER cut faceplate & enclosure
+- Enclosure bolts
+- Enclosure Nuts
+- Feather mounting bolts
+- Feather mounting nuts
 
 ## Software
 
-
 This code requires the following libraries:
 
- - [RTClib](https://github.com/adafruit/RTClib)
- - [DST_RTC](https://github.com/andydoro/DST_RTC)
- - [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library)
- - [Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel)
- - [Adafruit_NeoMatrix](https://github.com/adafruit/Adafruit_NeoMatrix)
+- [RTClib](https://github.com/adafruit/RTClib)
+- [DST_RTC](https://github.com/andydoro/DST_RTC)
+- [Adafruit_GFX](https://github.com/adafruit/Adafruit-GFX-Library)
+- [Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel)
+- [Adafruit_NeoMatrix](https://github.com/adafruit/Adafruit_NeoMatrix)
 
 
 ## Wiring
 
- - Solder DS1307 breakout to Trinket Pro, A2 to GND, A3 to PWR, A4 to SDA, A5 to SCL  
+- Solder DS1307 breakout to Trinket Pro, A2 to GND, A3 to PWR, A4 to SDA, A5 to SCL  
    If you leave off / clip the unused SQW pin on the RTC breakout, the breakout can sit right on top of the Trinket Pro for a compact design! It'll be difficult to reach the Trinket Pro reset button, but you can activate the bootloader by plugging in the USB.
- - Solder NeoMatrix 5V to Trinket 5V, GND to GND, DIN to Trinket Pro pin 8.
+- Solder NeoMatrix 5V to Trinket 5V, GND to GND, DIN to Trinket Pro pin 8.
 
 ## Grid Pattern
 
