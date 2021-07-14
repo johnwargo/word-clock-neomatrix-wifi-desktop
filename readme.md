@@ -6,7 +6,7 @@ This repository contains an updated version of the [WORD CLOCK - NeoMatrix 8x8 D
 * [Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/)
 * [GitHub Repository](https://github.com/andydoro/WordClock-NeoMatrix8x8)
 
-I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather device) so it can periodically update the realtime clock using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
+I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather device) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
 
 ## Updates
 
@@ -14,21 +14,16 @@ When I first started looking at the code in detail, it took me longer than I exp
 
 * Moved resetting the `mask` to the beginning of the function that actually manipulates the mask (`displayTime()`).
 * Added a bunch of comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
-
-
-~~* Added an option to reset the time stored in the realtime clock. The way the original sketch was written, once the sketch can see the RTC, it never updates the time from the compile date/time.~~
+* Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 
 **Goals** 
 
 * Update the readme with more detailed hardware requirements, configuration and setup instructions.
-* Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 
 ## Hardware
 
 - [Feather whatever]
 - [Feather RTC]
-- [Trinket Pro 5V](https://www.adafruit.com/product/2000) (should work with other Arduino-compatibles with minor modifications) 
-- [DS1307 RTC breakout](https://www.adafruit.com/products/3296)
 - [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
 - LASER cut faceplate & enclosure
 - Enclosure bolts
