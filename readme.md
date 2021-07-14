@@ -1,12 +1,20 @@
 # World Clock NeoMatrix 8x8 Wi-Fi Edition
 
-This repository contains an updated version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall). 
+This repository contains an updated version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall). Here's some details from the original project:
 
 * [Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/)
 * [Andy Doro World Clock Desktop](https://andydoro.com/wordclockdesktop/)
 * [GitHub Repository](https://github.com/andydoro/WordClock-NeoMatrix8x8)
 
-I forked the project because my implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather device) so it can periodically update the realtime clock using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
+I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather device) so it can periodically update the realtime clock using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
+
+When I first started looking at the code in detail, it took me longer than I expected to figure out what the code was doing. There were some things in the wrong place (in my opinion), so I decided to refactor the code a bit as I worked on it. So far, I made the following changes:
+
+* Moved resetting the `mask` to the beginning of the function that actually manipulates the mask (`displayTime()`).
+* Moved the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
+* Added a bunch of comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
+* (goal) Updated the readme with more detailed hardware requirements, configuration and setup instructions.
+
 
 
 Hardware:
