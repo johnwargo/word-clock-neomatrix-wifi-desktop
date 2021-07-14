@@ -2,8 +2,8 @@
 
 This repository contains an updated version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall). Here's some details from the original project:
 
-* [Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/)
 * [Andy Doro World Clock Desktop](https://andydoro.com/wordclockdesktop/)
+* [Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/)
 * [GitHub Repository](https://github.com/andydoro/WordClock-NeoMatrix8x8)
 
 I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather device) so it can periodically update the realtime clock using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
