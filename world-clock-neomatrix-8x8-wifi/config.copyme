@@ -1,3 +1,14 @@
+/* 
+ *  This is the configuration file for the project. The original source code repository
+ *  for this project has the file included as `config.copyme` and you're supposed to 
+ *  copy the file to `config.h` before trying to compile and deploy the sketch to the
+ *  Arduino hardware. This file won't appear in the Arduino IDE unless it's been copied
+ *  to the right file name.
+ *  
+ *  Once you copy the file, make any configuration changes you want here and they won't
+ *  be overwritten if you ever pull updated code from the Internet.
+*/
+
 #ifndef CONFIG_H
 #define CONFIG_H
 
