@@ -1,7 +1,7 @@
 
 // change brightness based on the time of day.
 
-void adjustBrightness() {
+void adjustBrightness(DateTime theTime) {
 
   // get time from the RTC
   //DateTime thetime = RTC.now();

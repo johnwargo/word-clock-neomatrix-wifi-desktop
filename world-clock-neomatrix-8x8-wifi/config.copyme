@@ -46,22 +46,8 @@ const char rulesDST[] = "US"; // US DST rules
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
 #define SHIFTDELAY 100   // controls color shifting speed
 
-// ==================================
-// This is probably no longer needed
-// ==================================
-/*
-    Over time, the RTC may lose accuracy. Since the Trinket
-    doesn't have a Wi-Fi connection, it can't reset its own clock
-    periodically. When this happens, uncomment the following line
-    and deploy to the trinket. It will reset the RTC to the compile
-    date and time, giving the clock a more accurate time. Once that's
-    done, comment out the line again, build, and deploy the sketch to
-    the trinket to reset the sketch to its original behavior.
 
-    But, thinking of it, the sketch no longer needs the original
-    code in this scenario since we've forced a time on the device,
-    that code will never run again.
-*/
-//#define RESETCLOCK
+#define WIFI_SSID ""
+#define WIFI_PSWD ""
 
 #endif

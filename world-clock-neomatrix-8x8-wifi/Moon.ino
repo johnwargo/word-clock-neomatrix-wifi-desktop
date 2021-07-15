@@ -79,9 +79,7 @@ rightHalf[] = {
 
 uint8_t phase = 0;
 
-void mode_moon() {
-
-  //DateTime theTime = RTC.now();
+void mode_moon(DateTime theTime) { 
   phase = (uint8_t) (((theTime.unixtime() - NEW_MOON) % LP) / (24L * 3600L));
 
   //uint8_t  b = 255; //(uint8_t)pgm_read_byte(&fade);
@@ -105,7 +103,6 @@ void blit(const uint8_t *img, int iw, int ih, int sx, int sy, int dx, int dy,
 
   shift = 16;
 
-
   if ((dx >= 8) || ((dx + w - 1) < 0)) return; // Quick X-only clipping
 
   b1 = (uint16_t)b + 1; // +1 so shift (rather than divide) can be used
@@ -122,5 +119,3 @@ void blit(const uint8_t *img, int iw, int ih, int sx, int sy, int dx, int dy,
     }
   }
 }
-
-

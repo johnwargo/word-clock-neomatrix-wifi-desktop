@@ -15,6 +15,7 @@ When I first started looking at the code in detail, it took me longer than I exp
 * Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 * Added more comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
 * Renamed all the project files using dashes instead of camelCase. Why? Just because - makes it more consistent and, I think, easier to read.
+* Removed the `DateTime theTime` global variable and declared it locally and passed it around as needed (global variables are bad).
 
 **Goals** 
 

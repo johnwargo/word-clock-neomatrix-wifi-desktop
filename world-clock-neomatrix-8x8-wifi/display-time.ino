@@ -1,7 +1,7 @@
 // Generates a mask representing the current time (approximately) as
 // a phrase (through the letters illiminated by the turned-on LED
 // in the NeoMatrix
-void displayTime(void) {
+void displayTime(DateTime theTime) {
   /*
    * The capitalized values used below are defines (compiler constants)        
    * which are replaced at compile time with the defined value which,        
