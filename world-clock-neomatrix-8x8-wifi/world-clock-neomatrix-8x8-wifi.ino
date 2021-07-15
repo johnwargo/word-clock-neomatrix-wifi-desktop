@@ -46,6 +46,8 @@
 
 */
 
+// TODO: add define that controls output to the serial monitor
+
 // include the library code:
 #include <Wire.h>
 #include <RTClib.h>
@@ -103,9 +105,10 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             LED_CONFIG);
 
 void setup() {
-  // Serial for debugging
+#ifdef ENABLE_MONITOR
   Serial.begin(115200);
   delay(1000);
+#endif
 
   // set pinmodes
   pinMode(NEOPIN, OUTPUT);
@@ -149,7 +152,9 @@ void loop() {
   theTime = dst_rtc.calculateTime(RTC.now()); // takes into account DST
   // add 2.5 minutes to get better estimates
   theTime = theTime.unixtime() + 150;
+#ifdef ENABLE_MONITOR
   printTimeValue(theTime);
+#endif
 
   adjustBrightness();
   displayTime();
@@ -157,7 +162,9 @@ void loop() {
 }
 
 void setTime() {
+#ifdef ENABLE_MONITOR
   Serial.println("Resetting RTC");
+#endif
   // following line sets the RTC to the date & time this sketch was compiled
   RTC.adjust(DateTime(__DATE__, __TIME__));
   // DST? If we're in it, let's subtract an hour from the RTC time to keep our DST calculation correct. This gives us
