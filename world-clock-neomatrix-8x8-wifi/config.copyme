@@ -46,6 +46,9 @@ const char rulesDST[] = "US"; // US DST rules
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
 #define SHIFTDELAY 100   // controls color shifting speed
 
+// ==================================
+// This is probably no longer needed
+// ==================================
 /*
     Over time, the RTC may lose accuracy. Since the Trinket
     doesn't have a Wi-Fi connection, it can't reset its own clock
