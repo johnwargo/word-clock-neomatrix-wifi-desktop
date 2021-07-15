@@ -61,7 +61,9 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_NeoMatrix.h>
 #include <Adafruit_NeoPixel.h>
+#include <NTPClient.h>
 #include <WiFi.h>
+#include <WiFiUdp.h>
 // sketch libraries
 #include "config.h"
 
@@ -100,6 +102,9 @@ DST_RTC dst_rtc; // DST object
 int j;   // an integer for the color shifting effect
 int lastHour = -1;
 int lastMinute = -1;
+
+WiFiUDP ntpUDP;
+NTPClient timeClient(ntpUDP);
 
 // Parameter 1 = number of pixels in the strip
 // Parameter 2 = Arduino pin number (most are valid)
@@ -141,6 +146,9 @@ void setup() {
     abort();
   }
   // Check to see if the RTC has a time set
+  // We don't really need to do this since we're going to get the time from 
+  // the network, but the RTC allows this thing to work even if the network
+  // is down for a long period. Need to think about this.
   if ( !rtc.lostPower()) {
     // set the RTC time to the compile date/time on the sketch
     Serial.println("Setting RTC to sketch time");
@@ -182,6 +190,7 @@ void setup() {
   matrix.show();
 
   // Update the RTC from the network
+  timeClient.begin();
   getNetworkTime();
 
   // Set the current time variables (used to decide when to check network time)
@@ -203,9 +212,7 @@ void loop() {
   theTime = dst_rtc.calculateTime(rtc.now()); // takes into account DST
   // add 2.5 minutes to get better estimates
   theTime = theTime.unixtime() + 150;
-#ifdef ENABLE_MONITOR
   printTimeValue(theTime);
-#endif
 
   adjustBrightness(theTime);
   displayTime(theTime);
@@ -218,7 +225,7 @@ void loop() {
 }
 
 void getNetworkTime() {
-
+  timeClient.update();
 }
 
 void printTimeValue(DateTime timeVal) {
