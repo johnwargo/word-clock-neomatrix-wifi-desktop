@@ -46,9 +46,6 @@
 
 */
 
-// TODO: Toggle Blue LED while connecting to Wi-Fi
-// TODO: Toggle Green LED while checking network time
-
 // Equipment
 // ===========================================================
 //Adafruit HUZZAH32 – ESP32 Feather Board
@@ -214,17 +211,18 @@ void loop() {
   if (theTime.hour() == 0 && theTime.minute() == 1) {
     // updated the RTC From the network
     getNetworkTime();
-    // then retrieved the updated time (to use in the
-    // rest of the loop)
+    // retrieve the updated time (to use in the rest of the loop)
+    // since we're assuming it was just updated from the network
     theTime = getAdjustedTime();
   }
-  // Did the minute-mark just change?
+  // Did the minute just change?
   if (theTime.minute() != lastMinute) {
     // Then update our last minute variable
     lastMinute = theTime.minute();
-    // Then display the new time
+    // and update the display with the new time
     adjustBrightness(theTime);
     displayTime(theTime);
+    
     // uncomment to show moon mode instead!
     //mode_moon(theTime);
   }
