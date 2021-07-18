@@ -46,14 +46,15 @@
 
 */
 
+// TODO: Toggle Blue LED while connecting to Wi-Fi
+// TODO: Toggle Green LED while checking network time
+
 // Equipment
 // ===========================================================
 //Adafruit HUZZAH32 – ESP32 Feather Board
 //https://learn.adafruit.com/adafruit-huzzah32-esp32-feather
 //DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards
 //https://www.adafruit.com/product/3028
-//Adafruit 2.13" Monochrome eInk / ePaper Display FeatherWing - 250x122 Monochrome with SSD1680
-//https://www.adafruit.com/product/4195
 // ===========================================================
 
 #include <RTClib.h>
@@ -93,6 +94,11 @@ uint64_t mask;
 #define TWELVE   mask |= 0xF600
 #define ANDYDORO mask |= 0x8901008700000000
 
+// Used to define the LEDs to illuminate when connecting to Wi-Fi
+// and the NTP server
+#define LETTER_W 3
+#define LETTER_T 2
+
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
 //RTC_DS1307 RTC; // Establish clock object
@@ -100,7 +106,6 @@ RTC_DS3231 rtc; // Establish clock object
 DST_RTC dst_rtc; // DST object
 
 int j;   // an integer for the color shifting effect
-int lastHour = -1;
 int lastMinute = -1;
 
 WiFiUDP ntpUDP;
@@ -122,7 +127,6 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             LED_CONFIG);
 
 void setup() {
-
   Serial.begin(115200);
   delay(1000);
 
@@ -146,7 +150,7 @@ void setup() {
     abort();
   }
   // Check to see if the RTC has a time set
-  // We don't really need to do this since we're going to get the time from 
+  // We don't really need to do this since we're going to get the time from
   // the network, but the RTC allows this thing to work even if the network
   // is down for a long period. Need to think about this.
   if ( !rtc.lostPower()) {
@@ -162,12 +166,12 @@ void setup() {
     rtc.adjust(standardTime);
   }
 
-  // Initialize the NeoMatrix
-  matrix.begin();
-  matrix.setBrightness(0.1);
-  // Set the LEDs to blue while connecting to the network
-  //  matrix.setColor();
-  matrix.fillScreen(1); // Turn on all of the LEDs
+  matrix.begin();   // Initialize the NeoMatrix
+  clearDisplay();   // empty/clear the display
+
+  // Now, show the LED we're going to use to indicate we're connecting to Wi-Fi
+  matrix.setBrightness(0.1);                  // Tone down the matrix brightness
+  matrix.setPixelColor(LETTER_W, 0, 0, 255);  // Turn on the 'W' (Wi-Fi) LED
   matrix.show();
 
   // Connect to the Wi-Fi network
@@ -184,19 +188,17 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   // Turn off all of the LEDS
-  //  matrix.setColor();
-  matrix.setBrightness(DAYBRIGHTNESS);
-  matrix.fillScreen(0);
-  matrix.show();
+  clearDisplay();
 
   // Update the RTC from the network
   timeClient.begin();
   getNetworkTime();
 
   // Set the current time variables (used to decide when to check network time)
-  //lastHour =
-  //lastMinute=
+  DateTime now = rtc.now();
+  lastMinute = now.minute();
 
+  matrix.setBrightness(DAYBRIGHTNESS);
   // startup sequence... do colorwipe?
   //  delay(500);
   //  rainbowCycle(1);
@@ -206,26 +208,55 @@ void setup() {
 }
 
 void loop() {
-  DateTime theTime; // Holds current clock time
+  // What's the current time (according to the RTC)?
+  DateTime theTime = getAdjustedTime();
+  // If it's just after midnight
+  if (theTime.hour() == 0 && theTime.minute() == 1) {
+    // updated the RTC From the network
+    getNetworkTime();
+    // then retrieved the updated time (to use in the
+    // rest of the loop)
+    theTime = getAdjustedTime();
+  }
+  // Did the minute-mark just change?
+  if (theTime.minute() != lastMinute) {
+    // Then update our last minute variable
+    lastMinute = theTime.minute();
+    // Then display the new time
+    adjustBrightness(theTime);
+    displayTime(theTime);
+    // uncomment to show moon mode instead!
+    //mode_moon(theTime);
+  }
+}
 
-  // get the time
+void clearDisplay() {
+  matrix.fillScreen(0);
+  matrix.show();
+}
+
+DateTime getAdjustedTime() {
+  DateTime theTime; 
   theTime = dst_rtc.calculateTime(rtc.now()); // takes into account DST
   // add 2.5 minutes to get better estimates
   theTime = theTime.unixtime() + 150;
   printTimeValue(theTime);
-
-  adjustBrightness(theTime);
-  displayTime(theTime);
-  // uncomment to show moon mode instead!
-  //mode_moon(theTime);
-
-  // Put a little delay in the loop
-  // no need to be in such a hurry
-  delay(100);
+  return theTime;
 }
 
 void getNetworkTime() {
-  timeClient.update();
+  clearDisplay();                             // Clear the display
+  matrix.setBrightness(0.1);                  // Tone down the matrix brightness
+  matrix.setPixelColor(LETTER_T, 0, 255, 0);  // Turn on the 'checking NTP' LED
+  matrix.show();
+  if (timeClient.forceUpdate()) {             // Force a time update
+    // NTPClient returned true; we must have gotten a time, so...
+    // Update the RTC
+    rtc.adjust(timeClient.getEpochTime());
+  } else {
+    Serial.println("Unable to get time from NTP server (not sure why)");
+  }
+  clearDisplay();
 }
 
 void printTimeValue(DateTime timeVal) {
