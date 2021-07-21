@@ -165,14 +165,13 @@ void setup() {
     // Double-check by pulling the time from the clock
     DateTime theTime = getAdjustedTime();
     // and printing it to the monitor
-    printTimeValue(theTime);    
+    printTimeValue(theTime);
   }
 
   matrix.begin();   // Initialize the NeoMatrix
   clearDisplay();   // empty/clear the display
 
   // Now, show the LED we're going to use to indicate we're connecting to Wi-Fi
-  //  matrix.setBrightness(0.1);                  // Tone down the matrix brightness
   matrix.setPixelColor(LETTER_W, 0, 0, 255);  // Turn on the 'W' (Wi-Fi) LED
   matrix.show();
 
@@ -185,7 +184,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
- 
+  // We made it here, so 
   Serial.print("\nConnected, IP address: ");
   Serial.println(WiFi.localIP());
 
@@ -268,11 +267,11 @@ void getNetworkTime() {
 }
 
 void printTimeValue(DateTime timeVal) {
-  Serial.print(timeVal.year(), DEC);
-  Serial.print('/');
   Serial.print(timeVal.month(), DEC);
   Serial.print('/');
-  Serial.print(timeVal.day(), DEC);
+  Serial.print(timeVal.day(), DEC);  
+  Serial.print('/');
+  Serial.print(timeVal.year(), DEC);  
   Serial.print(" (");
   Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
   Serial.print(") ");
