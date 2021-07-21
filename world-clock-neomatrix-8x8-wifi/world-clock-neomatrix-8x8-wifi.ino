@@ -45,14 +45,18 @@
     - Thanks Dano for faceplate / 3D models & project inspiration!
 
 */
-
-// Equipment
-// ===========================================================
-//Adafruit HUZZAH32 – ESP32 Feather Board
-//https://learn.adafruit.com/adafruit-huzzah32-esp32-feather
-//DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards
-//https://www.adafruit.com/product/3028
-// ===========================================================
+// ==============================================================================
+/* 
+ *  Updated by John M. Wargo, July, 2021
+ *  Updated the code to use the Wi-Fi enabled Adafruit Feather devices
+ *  so the code updates the date/time once a day via Network Time
+ *  Protocol (NTP) over the Wi-Fi network.
+ *  
+ *  Also refactored the code to move configuration settings to an 
+ *  external file to make it easier to separate code and config
+ *  (for future updates).
+*/
+// ==============================================================================
 
 #include <RTClib.h>
 #include <DST_RTC.h>
@@ -210,7 +214,7 @@ void setup() {
 void loop() {
   // What's the current time (according to the RTC)?
   DateTime theTime = getAdjustedTime();
-  
+
   // If it's just after midnight
   if (theTime.hour() == 0 && theTime.minute() == 1) {
     // updated the RTC From the network
@@ -219,7 +223,7 @@ void loop() {
     // since we're assuming it was just updated from the network
     theTime = getAdjustedTime();
   }
-  
+
   // Did the minute just change?
   if (theTime.minute() != lastMinute) {
     // Then update our last minute variable
@@ -255,8 +259,8 @@ void getNetworkTime() {
   matrix.show();
   if (timeClient.forceUpdate()) {             // Force a time update
     // NTPClient returned true; we must have gotten a time, so...
-    Serial.println("Updating real-time clock (RTC)");
     // Update the RTC
+    Serial.println("Updating real-time clock (RTC)");
     rtc.adjust(timeClient.getEpochTime());
     // And write the time value to the monitor
     Serial.print("Network Time: ");
@@ -268,14 +272,15 @@ void getNetworkTime() {
 }
 
 void printTimeValue(DateTime timeVal) {
+  // TODO: Add supoort for US/European date/time format
+  Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
+  Serial.print(", ");
   Serial.print(timeVal.month(), DEC);
   Serial.print('/');
   Serial.print(timeVal.day(), DEC);
   Serial.print('/');
   Serial.print(timeVal.year(), DEC);
-  Serial.print(" (");
-  Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
-  Serial.print(") ");
+  Serial.print(" @ ");
   Serial.print(timeVal.hour(), DEC);
   Serial.print(':');
   Serial.print(timeVal.minute(), DEC);
