@@ -1,3 +1,4 @@
+int j;   // an integer for the color shifting effect
 
 // show colorshift through the phrase mask. for each NeoPixel either show a color or show nothing!
 void applyMask() {

@@ -102,7 +102,6 @@ char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursd
 RTC_DS3231 rtc; // Establish clock object
 DST_RTC dst_rtc; // DST object
 
-int j;   // an integer for the color shifting effect
 int lastMinute = -1;
 
 WiFiUDP ntpUDP;
@@ -184,7 +183,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
-  // We made it here, so 
+  // We made it here, so
   Serial.print("\nConnected, IP address: ");
   Serial.println(WiFi.localIP());
 
@@ -211,6 +210,7 @@ void setup() {
 void loop() {
   // What's the current time (according to the RTC)?
   DateTime theTime = getAdjustedTime();
+  
   // If it's just after midnight
   if (theTime.hour() == 0 && theTime.minute() == 1) {
     // updated the RTC From the network
@@ -219,19 +219,20 @@ void loop() {
     // since we're assuming it was just updated from the network
     theTime = getAdjustedTime();
   }
+  
   // Did the minute just change?
   if (theTime.minute() != lastMinute) {
-    printTimeValue(theTime);
     // Then update our last minute variable
     lastMinute = theTime.minute();
-    // and update the display with the new time
-    adjustBrightness(theTime);
-    displayTime(theTime);
-    // uncomment to show moon mode instead!
-    //mode_moon(theTime);
+    printTimeValue(theTime);
   }
-  // Wait half a second
-  delay(500);
+
+  // and update the display with the new time
+  adjustBrightness(theTime);
+  displayTime(theTime);
+  // uncomment to show moon mode instead!
+  //mode_moon(theTime);
+  delay(100);
 }
 
 void clearDisplay() {
@@ -269,9 +270,9 @@ void getNetworkTime() {
 void printTimeValue(DateTime timeVal) {
   Serial.print(timeVal.month(), DEC);
   Serial.print('/');
-  Serial.print(timeVal.day(), DEC);  
+  Serial.print(timeVal.day(), DEC);
   Serial.print('/');
-  Serial.print(timeVal.year(), DEC);  
+  Serial.print(timeVal.year(), DEC);
   Serial.print(" (");
   Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
   Serial.print(") ");
