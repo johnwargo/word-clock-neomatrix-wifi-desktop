@@ -111,6 +111,8 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             LED_CONFIG);
 
 void setup() {
+  DateTime theTime;
+  
   Serial.begin(115200);
   delay(2000);
 
@@ -150,7 +152,7 @@ void setup() {
     rtc.adjust(standardTime);
 
     // Double-check by pulling the time from the clock
-    DateTime theTime = getAdjustedTime();
+    theTime = getAdjustedTime();
     // and printing it to the monitor
     printTimeValue(theTime);
   }
@@ -188,11 +190,14 @@ void setup() {
     timeClient.begin();
     timeClient.setTimeOffset(GMT_OFFSET);
     getNetworkTime();
+    // get the updated time
+    theTime = getAdjustedTime();
+    // write it to the monitor
+    printTimeValue(theTime);
   }
 
-  // Set the current time variables (used to decide when to check network time)
-  DateTime now = rtc.now();
-  lastMinute = now.minute();
+  // Set the current minute (used to decide when to display the time on the monitor)
+  lastMinute = rtc.now().minute();
 
   // Turn off all of the LEDS
   clearDisplay();
@@ -218,6 +223,7 @@ void loop() {
       // retrieve the updated time (to use in the rest of the loop)
       // since we're assuming it was just updated from the network
       theTime = getAdjustedTime();
+      printTimeValue(theTime);
     } else {
       Serial.print("\nSkipping network time check; no Wi-Fi connection");
     }
@@ -257,15 +263,9 @@ void getNetworkTime() {
   if (timeClient.forceUpdate()) {             // Force a time update
     // NTPClient returned true; we must have gotten a time, so...
     // Update the RTC
-    Serial.println("Updating real-time clock (RTC)");
-    // Put our current network time in a DateTime variable
-    DateTime adjustedTime = timeClient.getEpochTime();
-    // check whether we're in DST right now. If we are, adjust by an hour
-    if (dst_rtc.checkDST(adjustedTime) == true) {
-      Serial.println("Adjusting for DST");
-      adjustedTime = adjustedTime.unixtime() - 3600;
-    }
-    rtc.adjust(adjustedTime);
+    Serial.println("Updating RTC");
+    // Set the clock with the retrieved network time
+    rtc.adjust(timeClient.getEpochTime());
   } else {
     Serial.println("Unable to get time from NTP server (not sure why)");
     // Fill the matrix with RED
