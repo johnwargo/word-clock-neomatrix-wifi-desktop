@@ -168,27 +168,27 @@ void setup() {
   matrix.setPixelColor(LETTER_W, 0, 0, 255);  // Turn on the 'W' (Wi-Fi) LED
   matrix.show();
 
+  int loopCounter = 0;  // number of times we looped through the connecting loop
   // Connect to the Wi-Fi network
   WiFi.setHostname(HOST_NAME);
-  int loopCounter = 0;
   Serial.print("\nConnecting to the '");
   Serial.print(WIFI_SSID);
   Serial.print("' network");
   WiFi.begin(WIFI_SSID, WIFI_PSWD);
   while (WiFi.status() != WL_CONNECTED) {
-    // increment the loop counter
-    ++loopCounter;
-    // have we looped the configured number of times? Get out of the while loop
+    ++loopCounter;    // increment the loop counter
+    // have we looped the configured number of times?
     if (loopCounter > WIFI_TIMEOUT) {
+      // Get out of the while loop
       Serial.println("\nWi-Fi connection timed out");
       break;
     }
     delay(1000);
     Serial.print(".");
   }
+  
   // Are we connected?
   if (WiFi.status() == WL_CONNECTED) {
-    // then tell the world
     Serial.print("\nConnected, IP address: ");
     Serial.println(WiFi.localIP());
     // Update the RTC from the network
@@ -207,6 +207,7 @@ void setup() {
   // Turn off all of the LEDS
   clearDisplay();
 
+  // Now set things up for displaying the word clock
   matrix.setBrightness(DAYBRIGHTNESS);
   // startup sequence... do colorwipe?
   //  delay(500);

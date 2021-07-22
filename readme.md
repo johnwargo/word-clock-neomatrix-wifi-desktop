@@ -49,12 +49,10 @@ Time update happens
 
 ## Open Tasks
 
-* Add device name to config file and set it in the code
 * Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
-* Write assembly instructions
 * Document all of the configuration settings in the software.md file
-* Add instructions for installing software libraries
-* 
+* Write assembly instructions
+* Add instructions for installing software libraries 
 
 ## Instructions
 
