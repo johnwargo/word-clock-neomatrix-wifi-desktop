@@ -286,18 +286,20 @@ void printTimeValue(DateTime timeVal) {
 #ifdef USE_US_DATE_TIME_FORMAT
   // Get the hour in 12 hour format
   int theHour;
-  
   theHour = timeVal.hour();
   if (theHour > 12) {
     theHour -= 12;
   }
+  // Build the date/time string
   sprintf(DateAndTimeString, "%02d-%02d-%4d @ %d:%02d ", timeVal.month(), timeVal.day(), timeVal.year(), theHour, timeVal.minute());
+  // Append our AM/PM
   if (timeVal.hour() > 12) {
     strcat(DateAndTimeString, "PM");
   } else {
     strcat(DateAndTimeString, "AM");
   }
 #else
+  // Build the European date/time string
   sprintf(DateAndTimeString, "%4d-%02d-%02d %d:%02d", timeVal.year(), timeVal.month(), timeVal.day(), timeVal.hour(), timeVal.minute());
 #endif
   Serial.println(DateAndTimeString);
