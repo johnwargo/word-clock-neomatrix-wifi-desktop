@@ -112,7 +112,7 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
 
 void setup() {
   DateTime theTime;
-  
+
   Serial.begin(115200);
   delay(2000);
 
@@ -257,12 +257,13 @@ DateTime getAdjustedTime() {
 
 void getNetworkTime() {
   Serial.println("\nGetting network time...");
-  clearDisplay();                             // Clear the display
-  matrix.setPixelColor(LETTER_T, 255, 0, 0);  // Turn on the 'checking NTP' LED
+  // Illuminate the first T in the matrix in green when checking network time
+  clearDisplay();
+  matrix.setPixelColor(LETTER_T, 255, 0, 0);
   matrix.show();
-  if (timeClient.forceUpdate()) {             // Force a time update
-    // NTPClient returned true; we must have gotten a time, so...
-    // Update the RTC
+  // Now check the network for the current time
+  if (timeClient.forceUpdate()) {
+    // NTPClient returned true; so we must have gotten a time
     Serial.println("Updating RTC");
     // Set the clock with the retrieved network time
     rtc.adjust(timeClient.getEpochTime());
@@ -292,8 +293,4 @@ void printTimeValue(DateTime timeVal) {
   Serial.print(':');
   Serial.print(timeVal.second(), DEC);
   Serial.println();
-}
-
-void toggleWLED() {
-
 }
