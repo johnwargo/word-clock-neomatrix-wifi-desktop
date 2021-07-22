@@ -169,6 +169,7 @@ void setup() {
   matrix.show();
 
   // Connect to the Wi-Fi network
+  WiFi.setHostname(HOST_NAME);
   int loopCounter = 0;
   Serial.print("\nConnecting to the '");
   Serial.print(WIFI_SSID);
