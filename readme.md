@@ -54,10 +54,10 @@ Time update happens
 * Set all LEDs to red when NTP request fails
 * Add configuration option for GMT Offset
 * Add GMT Offset to network time 
+* Add device name to config file and set it in the code
 * Add `useUsDateTimeFormat` configuration setting
 * Refactor `printTimeValue` to accommodate US vs. European time and date formats
 * Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
-
 * Write assembly instructions
 * Document all of the configuration settings in the software.md file
 * Add instructions for installing software libraries
