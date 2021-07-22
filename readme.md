@@ -41,13 +41,20 @@ Explain why I switched to Feather Huzzah 32
 
 Explain about RTC and NTP
 
+NTP Check happens at startup and at midnight
+
+Time update happens
+
 
 
 ## Open Tasks
 
+* Add timeout for Wi-Fi connection
+* Toggle blue LED during Wi-Fi connection
+* Set all LEDs to red when NTP request fails
 * Add configuration option for GMT Offset
 * Add GMT Offset to network time 
-* Add `useUSDateTimeFormat` configuration setting
+* Add `useUsDateTimeFormat` configuration setting
 * Refactor `printTimeValue` to accommodate US vs. European time and date formats
 * Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
 

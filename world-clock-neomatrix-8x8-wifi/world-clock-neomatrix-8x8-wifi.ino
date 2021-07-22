@@ -4,12 +4,6 @@
 
    A word clock using NeoPixel RGB LEDs for a color shift effect.
 
-   Hardware:
-   - Trinket Pro 5V (should work with other Arduino-compatibles with minor modifications)
-   - DS1307 RTC breakout
-   - NeoPixel NeoMatrix 8x8
-
-
    Software:
 
    This code requires the following libraries:
@@ -19,15 +13,6 @@
    - Adafruit_GFX https://github.com/adafruit/Adafruit-GFX-Library
    - Adafruit_NeoPixel https://github.com/adafruit/Adafruit_NeoPixel
    - Adafruit_NeoMatrix https://github.com/adafruit/Adafruit_NeoMatrix
-
-
-   Wiring:
-   - Solder DS1307 breakout to Trinket Pro, A2 to GND, A3 to PWR, A4 to SDA, A5 to SCL
-   If you leave off / clip the unused SQW pin on the RTC breakout, the breakout can sit right on top of the Trinket Pro
-   for a compact design! It'll be difficult to reach the Trinket Pro reset button, but you can activate the bootloader by
-   plugging in the USB.
-   - Solder NeoMatrix 5V to Trinket 5V, GND to GND, DIN to Trinket Pro pin 8.
-
 
    grid pattern
 
@@ -40,11 +25,10 @@
     T W E L E V E N
     F O U R N I N E
 
-
     Acknowledgements:
     - Thanks Dano for faceplate / 3D models & project inspiration!
-
 */
+
 // ==============================================================================
 /* 
  *  Updated by John M. Wargo, July, 2021
