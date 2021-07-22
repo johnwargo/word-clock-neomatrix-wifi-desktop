@@ -51,7 +51,8 @@
 #include <strings.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
-// sketch libraries
+
+// This project's libraries
 #include "config.h"
 
 char DateAndTimeString[20];
