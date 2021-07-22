@@ -58,6 +58,10 @@
 */
 #define GMT_OFFSET -18000
 
+// Comment out the following line to display Date/Time values (in the monitor)
+// in European format
+#define USE_US_DATE_TIME_FORMAT
+
 // Define US or EU rules for DST comment out as required. More countries could be added with different rules in DST_RTC.cpp
 const char rulesDST[] = "US"; // US DST rules
 // const char rulesDST[] = "EU";   // EU DST rules
