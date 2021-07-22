@@ -42,16 +42,19 @@
 */
 // ==============================================================================
 
-#include <RTClib.h>
-#include <DST_RTC.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_NeoMatrix.h>
 #include <Adafruit_NeoPixel.h>
+#include <DST_RTC.h>
 #include <NTPClient.h>
+#include <RTClib.h>
+#include <strings.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
 // sketch libraries
 #include "config.h"
+
+char DateAndTimeString[20];
 
 // define how to write each of the words
 // 64-bit "mask" for each pixel in the matrix- is it on or off?
@@ -278,19 +281,24 @@ void getNetworkTime() {
 }
 
 void printTimeValue(DateTime timeVal) {
-  // TODO: Add supoort for US/European date/time format
   Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
   Serial.print(", ");
-  Serial.print(timeVal.month(), DEC);
-  Serial.print('/');
-  Serial.print(timeVal.day(), DEC);
-  Serial.print('/');
-  Serial.print(timeVal.year(), DEC);
-  Serial.print(" @ ");
-  Serial.print(timeVal.hour(), DEC);
-  Serial.print(':');
-  Serial.print(timeVal.minute(), DEC);
-  Serial.print(':');
-  Serial.print(timeVal.second(), DEC);
-  Serial.println();
+#ifdef USE_US_DATE_TIME_FORMAT
+  // Get the hour in 12 hour format
+  int theHour;
+  
+  theHour = timeVal.hour();
+  if (theHour > 12) {
+    theHour -= 12;
+  }
+  sprintf(DateAndTimeString, "%02d-%02d-%4d @ %d:%02d ", timeVal.month(), timeVal.day(), timeVal.year(), theHour, timeVal.minute());
+  if (timeVal.hour() > 12) {
+    strcat(DateAndTimeString, "PM");
+  } else {
+    strcat(DateAndTimeString, "AM");
+  }
+#else
+  sprintf(DateAndTimeString, "%4d-%02d-%02d %d:%02d", timeVal.year(), timeVal.month(), timeVal.day(), timeVal.hour(), timeVal.minute());
+#endif
+  Serial.println(DateAndTimeString);
 }
