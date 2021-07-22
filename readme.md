@@ -67,7 +67,7 @@ Time update happens
 
 To keep this readme as simple as possible, I moved the assembly and software configuration instructions into separate files:
 
-* [Assembly](assembly.md)
-* [Software Configuration](software.md)
+* [Assembly](docs/assembly.md)
+* [Software Configuration](docs/software.md)
 * 
 
