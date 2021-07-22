@@ -284,8 +284,6 @@ void getNetworkTime() {
 }
 
 void printTimeValue(DateTime timeVal) {
-  Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
-  Serial.print(", ");
 #ifdef USE_US_DATE_TIME_FORMAT
   // Get the hour in 12 hour format
   int theHour;
@@ -305,5 +303,7 @@ void printTimeValue(DateTime timeVal) {
   // Build the European date/time string
   sprintf(DateAndTimeString, "%4d-%02d-%02d %d:%02d", timeVal.year(), timeVal.month(), timeVal.day(), timeVal.hour(), timeVal.minute());
 #endif
+  Serial.print(daysOfTheWeek[timeVal.dayOfTheWeek()]);
+  Serial.print(", ");
   Serial.println(DateAndTimeString);
 }
