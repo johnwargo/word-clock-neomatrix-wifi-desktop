@@ -30,6 +30,34 @@
 // you'll need to modify the code in the calcTheTime() function to make this work properly.
 #define OBSERVE_DST 1
 
+/* NTP returns the current time as Greenwich Mean Time (GMT), so to
+ * display the current time for your time zone, you must provide an
+ * offset value that's automatically added to the time returned from
+ * NTP. Enter a value below calculated based on your current time 
+ * zone difference from GMT as follows:
+ * 
+ * GMT_OFFSET * 3600
+ * 
+ * For example, I live in GMT-5, so I'd calculate mine as: 
+ * 
+ *    -5 * 3600 = -18000
+ *    
+ * Examples:
+ * 
+ * -5 = -18000
+ * -4 = -14400
+ * -3 = -10800
+ * -2 = -7200
+ * -1 = -3600
+ * GMT = 0
+ * +1 = 3600
+ * +2 = 7200
+ * +3 = 10800
+ * +4 = 14400
+ * +5 = 18000
+*/
+#define GMT_OFFSET -18000
+
 // Define US or EU rules for DST comment out as required. More countries could be added with different rules in DST_RTC.cpp
 const char rulesDST[] = "US"; // US DST rules
 // const char rulesDST[] = "EU";   // EU DST rules
@@ -48,5 +76,6 @@ const char rulesDST[] = "US"; // US DST rules
 
 #define WIFI_SSID ""
 #define WIFI_PSWD ""
+#define WIFI_TIMEOUT 60 //seconds
 
 #endif

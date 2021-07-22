@@ -49,9 +49,6 @@ Time update happens
 
 ## Open Tasks
 
-* Add timeout for Wi-Fi connection
-* Toggle blue LED during Wi-Fi connection
-* Set all LEDs to red when NTP request fails
 * Add configuration option for GMT Offset
 * Add GMT Offset to network time 
 * Add device name to config file and set it in the code

@@ -30,15 +30,15 @@
 */
 
 // ==============================================================================
-/* 
- *  Updated by John M. Wargo, July, 2021
- *  Updated the code to use the Wi-Fi enabled Adafruit Feather devices
- *  so the code updates the date/time once a day via Network Time
- *  Protocol (NTP) over the Wi-Fi network.
- *  
- *  Also refactored the code to move configuration settings to an 
- *  external file to make it easier to separate code and config
- *  (for future updates).
+/*
+    Updated by John M. Wargo, July, 2021
+    Updated the code to use the Wi-Fi enabled Adafruit Feather devices
+    so the code updates the date/time once a day via Network Time
+    Protocol (NTP) over the Wi-Fi network.
+
+    Also refactored the code to move configuration settings to an
+    external file to make it easier to separate code and config
+    (for future updates).
 */
 // ==============================================================================
 
@@ -163,21 +163,32 @@ void setup() {
   matrix.show();
 
   // Connect to the Wi-Fi network
+  int loopCounter = 0;
   Serial.print("\nConnecting to the '");
   Serial.print(WIFI_SSID);
   Serial.print("' network");
   WiFi.begin(WIFI_SSID, WIFI_PSWD);
   while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+    // increment the loop counter
+    ++loopCounter;
+    // have we looped the configured number of times? Get out of the while loop
+    if (loopCounter > WIFI_TIMEOUT) {
+      Serial.println("\nWi-Fi connection timed out");
+      break;
+    }
+    delay(1000);
     Serial.print(".");
   }
-  // We made it here, so
-  Serial.print("\nConnected, IP address: ");
-  Serial.println(WiFi.localIP());
-
-  // Update the RTC from the network
-  timeClient.begin();
-  getNetworkTime();
+  // Are we connected?
+  if (WiFi.status() == WL_CONNECTED) {
+    // then tell the world
+    Serial.print("\nConnected, IP address: ");
+    Serial.println(WiFi.localIP());
+    // Update the RTC from the network
+    timeClient.begin();
+    timeClient.setTimeOffset(GMT_OFFSET);
+    getNetworkTime();
+  }
 
   // Set the current time variables (used to decide when to check network time)
   DateTime now = rtc.now();
@@ -201,11 +212,15 @@ void loop() {
 
   // If it's just after midnight
   if (theTime.hour() == 0 && theTime.minute() == 1) {
-    // updated the RTC From the network
-    getNetworkTime();
-    // retrieve the updated time (to use in the rest of the loop)
-    // since we're assuming it was just updated from the network
-    theTime = getAdjustedTime();
+    if (WiFi.status() == WL_CONNECTED) {
+      // updated the RTC From the network
+      getNetworkTime();
+      // retrieve the updated time (to use in the rest of the loop)
+      // since we're assuming it was just updated from the network
+      theTime = getAdjustedTime();
+    } else {
+      Serial.print("\nSkipping network time check; no Wi-Fi connection");
+    }
   }
 
   // Did the minute just change?
@@ -231,8 +246,6 @@ void clearDisplay() {
 DateTime getAdjustedTime() {
   DateTime theTime;
   theTime = dst_rtc.calculateTime(rtc.now()); // takes into account DST
-  // add 2.5 minutes to get better estimates
-  //  theTime = theTime.unixtime() + 150;
   return theTime;
 }
 
@@ -245,12 +258,20 @@ void getNetworkTime() {
     // NTPClient returned true; we must have gotten a time, so...
     // Update the RTC
     Serial.println("Updating real-time clock (RTC)");
-    rtc.adjust(timeClient.getEpochTime());
-    // And write the time value to the monitor
-    Serial.print("Network Time: ");
-    Serial.println(timeClient.getFormattedTime());
+    // Put our current network time in a DateTime variable
+    DateTime adjustedTime = timeClient.getEpochTime();
+    // check whether we're in DST right now. If we are, adjust by an hour
+    if (dst_rtc.checkDST(adjustedTime) == true) {
+      Serial.println("Adjusting for DST");
+      adjustedTime = adjustedTime.unixtime() - 3600;
+    }
+    rtc.adjust(adjustedTime);
   } else {
     Serial.println("Unable to get time from NTP server (not sure why)");
+    // Fill the matrix with RED
+    matrix.fillScreen(matrix.Color(0, 255, 0));
+    matrix.show();
+    delay(2000);
   }
   clearDisplay();
 }
@@ -271,4 +292,8 @@ void printTimeValue(DateTime timeVal) {
   Serial.print(':');
   Serial.print(timeVal.second(), DEC);
   Serial.println();
+}
+
+void toggleWLED() {
+
 }
