@@ -1,4 +1,4 @@
-# Word Clock Software Details
+# Word Clock (Feather) Software Details
 
 
 

@@ -1,4 +1,4 @@
-# Word Clock Assembly
+# Word Clock (Feather) Assembly
 
 
 
