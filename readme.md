@@ -27,7 +27,7 @@ Acknowledgements:
 
 ## Project Updates
 
-I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol). 
+I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
 
 I've tried to maintain as much of the original code as possible. So far, I made the following changes:
 
@@ -44,7 +44,7 @@ For this version of the project, I selected the [Feather Huzzah 32](https://www.
 
 In the original project, the code set the real-time clock time using the build date/time for the Arduino Sketch running on the board. The sketch did this the first time it ran, and there was no easy way to update it later. As I mentioned in the introduction, I ran into some time leakage problems (after about a year running, the time wasn't anywhere near the actual time) so I wrote a simple modification to the code that let you reset it manually (read more in [Word Clock Time Issues](https://johnwargo.com/internet-of-things-iot/word-clock-time-issues.html)).
 
-This version still has the original code that sets the RTC date/time using the build date/time, but since the sketch runs on an Arduino-compatible device with Wi-Fi, I can use [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP) to periodically update the RTC from the network. 
+This version still has the original code that sets the RTC date/time using the build date/time, but since the sketch runs on an Arduino-compatible device with Wi-Fi, I can use Network Time Protocol to periodically update the RTC from the network. 
 
 So, here's the order of RTC-related things in the sketch:
 
