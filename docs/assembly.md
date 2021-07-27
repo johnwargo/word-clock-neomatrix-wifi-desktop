@@ -8,6 +8,7 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 
 * [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather)
 * [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
+* [CR1220 12mm Diameter - 3V Lithium Coin Cell Battery](https://www.adafruit.com/product/380)
 * [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
 * [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002)
 * [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886)
@@ -41,15 +42,15 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 - [ ] On the DS3231 Precision RTC FeatherWing board, look for the connections highlighted in the following figure. 
 
-**Note:** When I connected the wires to the board (described in the next three steps) I ran the wires up from the underside of the board and soldered them on the top
-
 ![DS3231 Precision RTC FeatherWing Connections](images/ds3231-pins.png)
+
+**Note:** When I connected the wires to the board (described in the next three steps) I ran the wires up from the underside of the board and soldered them on the top
 
 - [ ] Connect the exposed end of the Black wire to the GND Connection highlighted in the figure and solder it in place.
 
 - [ ] Connect the exposed end of the Red wire to the 5V Connection highlighted in the figure and solder it in place.
 
-- [ ] Connect the exposed end of the other color (mine is blue) wire to the DIN Connection highlighted in the figure and solder it in place.
+- [ ] Connect the exposed end of the other color (mine is blue) wire to the DIN Connection highlighted in the figure and solder it in place. This is the A0 pin on the Feather.
 
 When you're all done, the assembly should look similar to the following:
 
@@ -59,12 +60,11 @@ When you're all done, the assembly should look similar to the following:
 
 ![Feather With Female Headers](images/feather-headers.png)
 
-- [ ] 
+- [ ] Stack the DS3231 Precision RTC FeatherWing board on top of the Feather Huzzah 32 as shown in the following figure:
 
+![Fully assembled electronics](images/assembled-electronics.png)
 
-![]()
-
-- [ ] 
+- [ ] Finally, insert the CR1220 battery into the battery holder on top of the Feather assembly
 
 - [ ] 
 
