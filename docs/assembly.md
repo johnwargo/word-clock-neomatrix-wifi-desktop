@@ -35,9 +35,9 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 - [ ] Strip 1/4 inch of insulation from both ends of the remaining wire, then solder one end of the wire to the DIN connector highlighted in the previous figure.
 
-- [ ] Grab the DS3231 Precision RTC FeatherWing board and solder the male headers to the board. The easiest way to do this is to insert the bottom posts of the header into a breadboard, then set the board on top and solder the pins exposed through the board (as shown in the following figure).
+- [ ] Grab the DS3231 Precision RTC FeatherWing board and solder the male headers to the board. The easiest way to do this is to insert the bottom posts of the header into a breadboard, then set the board on top of the exposed header pins then (as shown in the following figure). Make sure you use the outside (closest to the edge of the board) holes for the headers as shown in the figure. Solder each of the pins to the board.
 
-![]()
+![DS3231 Precision RTC FeatherWing Headers](images/ds3231-headers.png)
 
 - [ ] On the DS3231 Precision RTC FeatherWing board, look for the connections highlighted in the following figure. 
 
@@ -59,6 +59,35 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 - [ ] 
 
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
 
 Assemble the case
 
