@@ -97,6 +97,7 @@ There's a loophole.
 
 * Add Wi-Fi reconnect: https://randomnerdtutorials.com/solved-reconnect-esp32-to-wifi/
 * Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
-* Document all of the configuration settings in the software.md file
-* Write assembly instructions
+* Document the setup and testing of the tester app
+* Write enclosure assembly instructions
 * Add instructions for installing software libraries 
+* Document all of the configuration settings in the `software.md` file
