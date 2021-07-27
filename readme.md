@@ -25,22 +25,6 @@ Acknowledgements:
 
   - Thanks [Dano](https://github.com/danowall) for faceplate / 3D models & project inspiration! 
 
-## Project Updates
-
-I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
-
-I've tried to maintain as much of the original code as possible. So far, I made the following changes:
-
-* Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
-* Removed the `DateTime theTime` global variable and declared it locally and passed it around as needed (global variables are bad).
-* Added more comments explaining the code in more detail (for users who want to better understand what's happening within the sketch).
-* Renamed the project files using dashes instead of camelCase; this names them consistently and, when you're working on systems where file name case matters, you won't have to deal with anything in upper case.
-* Added an test sketch to quickly validate the electronics assembly before configuring and deploying the main clock sketch.
-* Updated the enclosure files to accommodate the Adafruit Feather board and added the files to a separate folder in the repo
-* Added LASER cutter files for a 12-inch clock face for a wall mounted unit.
-
-For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that deals properly with different temperature conditions.
-
 ## Hardware Components
 
 The project requires the following hardware components:
@@ -59,7 +43,23 @@ The project requires the following hardware components:
   * 8mm M2.5 bolts (4 each) for mounting the Feather device to the enclosure
   * M2.5 nuts (8 each) for mounting the Feather device to the enclosure
 
-## Clock Operation
+## Project Updates
+
+I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
+
+I've tried to maintain as much of the original code as possible. So far, I made the following changes:
+
+* Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
+* Removed the `DateTime theTime` global variable and declared it locally and passed it around as needed (global variables are bad).
+* Added more comments explaining the code in more detail (for users who want to better understand what's happening within the sketch).
+* Renamed the project files using dashes instead of camelCase; this names them consistently and, when you're working on systems where file name case matters, you won't have to deal with anything in upper case.
+* Added an test sketch to quickly validate the electronics assembly before configuring and deploying the main clock sketch.
+* Updated the enclosure files to accommodate the Adafruit Feather board and added the files to a separate folder in the repo
+* Added LASER cutter files for a 12-inch clock face for a wall mounted unit.
+
+For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that deals properly with different temperature conditions.
+
+## Clock Changes
 
 In the original project, the code set the real-time clock time using the build date/time for the Arduino Sketch running on the board. The sketch did this the first time it ran, and there was no easy way to update it later. As I mentioned in the introduction, I ran into some time leakage problems (after about a year running, the time wasn't anywhere near the actual time) so I wrote a simple modification to the code that let you reset it manually (read more in [Word Clock Time Issues](https://johnwargo.com/internet-of-things-iot/word-clock-time-issues.html)).
 
