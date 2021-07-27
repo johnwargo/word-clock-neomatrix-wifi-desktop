@@ -27,7 +27,7 @@ Acknowledgements:
 
 ## Hardware Components
 
-The project requires the following hardware components:
+This updated version of the project uses the following hardware components:
 
 * [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather)
 * [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
@@ -35,13 +35,13 @@ The project requires the following hardware components:
 * [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
 * [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002)
 * [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886)
-* LASER cut faceplate & enclosure
+* LASER cut faceplate & enclosure (I'm using all capital letters for LASER because it is, after all, an acronym)
 * Enclosure Assembly Parts:
-  * 12mm M3 bolts (10 each) for assembling the enclosure  
-  * 8mm M3 bolts with nuts (4 each) for mounting the LED Matrix to the enclosure
-  * M3 nuts (14 each) for assembling the enclosure
-  * 8mm M2.5 bolts (4 each) for mounting the Feather device to the enclosure
-  * M2.5 nuts (8 each) for mounting the Feather device to the enclosure
+  * 12mm M3 bolts (10 each); enclosure assembly
+  * 8mm M3 bolts with nuts (4 each); mounting the LED Matrix to the enclosure
+  * M3 nuts (14 each); enclosure assembly
+  * 8mm M2.5 bolts (4 each); mounting the Feather device to the enclosure
+  * M2.5 nuts (8 each); mounting the Feather device to the enclosure
 
 ## Project Updates
 
