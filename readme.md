@@ -35,11 +35,30 @@ I've tried to maintain as much of the original code as possible. So far, I made 
 * Removed the `DateTime theTime` global variable and declared it locally and passed it around as needed (global variables are bad).
 * Added more comments explaining the code in more detail (for users who want to better understand what's happening within the sketch).
 * Renamed the project files using dashes instead of camelCase; this names them consistently and, when you're working on systems where file name case matters, you won't have to deal with anything in upper case.
+* Added an test sketch to quickly validate the electronics assembly before configuring and deploying the main clock sketch.
 * Updated the enclosure files to accommodate the Adafruit Feather board and added the files to a separate folder in the repo
 * Added LASER cutter files for a 12-inch clock face for a wall mounted unit.
 
 For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that deals properly with different temperature conditions.
 
+## Hardware Components
+
+The project requires the following hardware components:
+
+* [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather)
+* [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
+* [CR1220 12mm Diameter - 3V Lithium Coin Cell Battery](https://www.adafruit.com/product/380)
+* [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
+* [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002)
+* [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886)
+* LASER cut faceplate & enclosure
+* Enclosure Assembly Parts:
+  * 12mm M3 bolts (10 each) for assembling the enclosure  
+  * 8mm M3 bolts with nuts (4 each) for mounting the LED Matrix to the enclosure
+  * M3 nuts (14 each) for assembling the enclosure
+  * 8mm M2.5 bolts (4 each) for mounting the Feather device to the enclosure
+  * M2.5 nuts (8 each) for mounting the Feather device to the enclosure
+  
 ## Clock Operation
 
 In the original project, the code set the real-time clock time using the build date/time for the Arduino Sketch running on the board. The sketch did this the first time it ran, and there was no easy way to update it later. As I mentioned in the introduction, I ran into some time leakage problems (after about a year running, the time wasn't anywhere near the actual time) so I wrote a simple modification to the code that let you reset it manually (read more in [Word Clock Time Issues](https://johnwargo.com/internet-of-things-iot/word-clock-time-issues.html)).

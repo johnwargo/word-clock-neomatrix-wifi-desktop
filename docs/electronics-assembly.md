@@ -1,10 +1,10 @@
-# Word Clock (Feather) Assembly
+# Word Clock (Feather) Electronics Assembly & Testing
 
-Filet mignon jowl chislic pork chop capicola short loin. Corned beef biltong tri-tip, cupim prosciutto jerky pastrami rump kielbasa beef ribs tongue sausage landjaeger. Ham pork chop kevin landjaeger, fatback prosciutto turducken shoulder capicola. Swine pork belly sirloin bresaola short ribs tenderloin.
+This document contains the complete instructions for assemblying and testing the electronics components for the project. For instructions on how to assemble the enclosure, refer to [Enclosure Assembly](enclosure-assembly.md).
 
 ## Hardware Components
 
-Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto, chuck alcatra hamburger pork chop sirloin pork belly. Pig flank pancetta brisket. Shank pancetta picanha, ham leberkas cupim landjaeger boudin jowl. Boudin meatloaf ham hock pork chop strip steak andouille.
+The project requires the following hardware components:
 
 * [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather)
 * [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
@@ -21,6 +21,8 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
   * M2.5 nuts (8 each) for mounting the Feather device to the enclosure
 
 ## Assembly Instructions
+
+We'll start by wiring all of the electronic components together. 
 
 - [ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can use the same color for all, but I wouldn't (because this will just get confusing later on if you do). Instead, use three separate colors: red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
 
@@ -66,7 +68,8 @@ When you're all done, the assembly should look similar to the following:
 
 - [ ] Finally, insert the CR1220 battery into the battery holder on top of the Feather assembly
 
-- [ ] 
+## Electronics Testing
+
 
 - [ ] 
 
@@ -98,7 +101,8 @@ When you're all done, the assembly should look similar to the following:
 
 - [ ] 
 
-Assemble the case
+- [ ] 
+
 
 - [ ] 
 
