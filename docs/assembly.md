@@ -19,7 +19,9 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 
 ## Assembly Instructions
 
-[ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can make them all the same color, but I wouldn't. Instead, use three separate colors; I used red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
+- [ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can use the same color for all, but I wouldn't (because this will just get confusing later on if you do). Instead, use three separate colors; I used red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
+
+
 
 Solder the components together
 
