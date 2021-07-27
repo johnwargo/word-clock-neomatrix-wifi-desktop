@@ -2,15 +2,19 @@
 #include <Adafruit_NeoPixel.h>
 #include <RTClib.h>
 
-#define NEOPIN 26  // connect to DIN on NeoMatrix 8x8
-#define LED_CONFIG NEO_RGB + NEO_KHZ800
+/* Change this value if you connected the NeoPixel Matrix to a different
+    Feather pin. The current value of 26 reflects A0 for the Feather 
+    Huzzah 32 board as described here: 
+    https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/pinouts#gpio-and-analog-pins-2816355-15
+*/
+#define NEOPIN 26
 
 RTC_DS3231 rtc; // Establish clock object
 
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             NEO_MATRIX_TOP  + NEO_MATRIX_LEFT +
                             NEO_MATRIX_ROWS + NEO_MATRIX_PROGRESSIVE,
-                            LED_CONFIG);
+                            NEO_RGB + NEO_KHZ800);
 
 void setup() {
   Serial.begin(115200);
