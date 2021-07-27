@@ -19,9 +19,31 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 
 ## Assembly Instructions
 
-- [ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can use the same color for all, but I wouldn't (because this will just get confusing later on if you do). Instead, use three separate colors; I used red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
+- [ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can use the same color for all, but I wouldn't (because this will just get confusing later on if you do). Instead, use three separate colors: red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
 
+- [ ] (Assuming you have red, black, and some other color wire) Strip 1/4 inch of insulation from both ends of the Black wire, then solder one end of the wire to the `GND` connector highlighted in the following figure. 
 
+![Adafruit NeoPixel NeoMatrix 8x8 Connections](images/neopixel-pins.png)
+
+- [ ] Strip 1/4 inch of insulation from both ends of the Red wire, then solder one end of the wire to the 5V connector highlighted in the previous figure.
+
+- [ ] Strip 1/4 inch of insulation from both ends of the remaining wire, then solder one end of the wire to the DIN connector highlighted in the previous figure.
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
 
 Solder the components together
 
