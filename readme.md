@@ -43,6 +43,14 @@ This updated version of the project uses the following hardware components:
   * 8mm M2.5 bolts (4 each); mounting the Feather device to the enclosure
   * M2.5 nuts (8 each); mounting the Feather device to the enclosure
 
+## Instructions
+
+To keep this readme as simple as possible, I moved the assembly and software configuration instructions into separate files:
+
+* [Electronics Assembly & Testing](docs/electronics-assembly.md)
+* [Enclosure Assembly](docs/enclosure-assembly.md)
+* [Software Configuration & Deployment](docs/software.md)
+
 ## Project Updates
 
 I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
@@ -82,15 +90,6 @@ Some things about Time:
 Explain about RTC and NTP
 
 There's a loophole.
-
-
-## Instructions
-
-To keep this readme as simple as possible, I moved the assembly and software configuration instructions into separate files:
-
-* [Electronics Assembly & Testing](docs/electronics-assembly.md)
-* [Enclosure Assembly](docs/enclosure-assembly.md)
-* [Software Configuration & Deployment](docs/software.md)
 
 ## Open Tasks
 
