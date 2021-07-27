@@ -25,7 +25,7 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 
 - [ ] Look at the back of the NeoPixel Matrix board and locate the three connectors (highlighted in orange) to the right of the board name in the following figure. In the following three steps, you must use the highlighted connectors (the board has two sets of connectors, and if you use the wrong ones things just won't work correctly). 
 
-The enclosure has an opening to accommodate wires connected to the highlighted connectors, and if you use the wrong ones, the matrix will be unside-down and the clock will never display the correct time. Get it right the first time, please.
+The enclosure has an opening to accommodate wires connected to the highlighted connectors. If you use the wrong ones, the matrix will be unside-down in the enclosure, and the clock will never display the correct time. Get it right the first time, please.
 
 ![Adafruit NeoPixel NeoMatrix 8x8 Connections](images/neopixel-pins.png)
 
@@ -35,7 +35,7 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 - [ ] Strip 1/4 inch of insulation from both ends of the remaining wire, then solder one end of the wire to the DIN connector highlighted in the previous figure.
 
-- [ ] Grab the DS3231 Precision RTC FeatherWing board and solder the male headers to the board. The easiest way to do this is to insert the bottom posts of the header into a breadboard, then set the board on top of the exposed header pins then (as shown in the following figure). Make sure you use the outside (closest to the edge of the board) holes for the headers as shown in the figure. Solder each of the pins to the board.
+- [ ] Grab the DS3231 Precision RTC FeatherWing board and solder the male headers to the board. The easiest way to do this is to insert the bottom posts of the header (the longer pins) into a breadboard, then set the board on top of the exposed header pins (as shown in the following figure). Make sure you use the outside (closest to the edge of the board) holes for the headers as shown in the figure, then solder each of the pins to the board.
 
 ![DS3231 Precision RTC FeatherWing Headers](images/ds3231-headers.png)
 
@@ -45,15 +45,24 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 ![DS3231 Precision RTC FeatherWing Connections](images/ds3231-pins.png)
 
-- [ ] 
+- [ ] Connect the exposed end of the Black wire to the GND Connection highlighted in the figure and solder it in place.
+
+- [ ] Connect the exposed end of the Red wire to the 5V Connection highlighted in the figure and solder it in place.
+
+- [ ] Connect the exposed end of the other color (mine is blue) wire to the DIN Connection highlighted in the figure and solder it in place.
+
+When you're all done, the assembly should look similar to the following:
+
+![Completed soldered connections](images/connections-finished.png)
+
+- [ ] Grab the Feather Huzzah32 board and insert the female headers through the pins on the top of the board as shown in the following figure. Next, solder the pins on the underside of the board.
+
+![Feather With Female Headers](images/feather-headers.png)
 
 - [ ] 
 
-- [ ] 
 
-- [ ] 
-
-- [ ] 
+![]()
 
 - [ ] 
 
@@ -91,3 +100,6 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 Assemble the case
 
+- [ ] 
+
+![]()
