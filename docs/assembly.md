@@ -21,9 +21,11 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 
 - [ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can use the same color for all, but I wouldn't (because this will just get confusing later on if you do). Instead, use three separate colors: red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
 
-- [ ] (Assuming you have red, black, and some other color wire) Strip 1/4 inch of insulation from both ends of the Black wire, then solder one end of the wire to the `GND` connector highlighted in the following figure. 
+- [ ] Look at the back of the NeoPixel Matrix board and locate the three connectors to the right of the board name highlighted in orange in the following figure. In the following three steps, you must use the highlighted connectors (the board has two sets of them and you'll want to use the right one).
 
 ![Adafruit NeoPixel NeoMatrix 8x8 Connections](images/neopixel-pins.png)
+
+- [ ] (Assuming you have red, black, and some other color wire) Strip 1/4 inch of insulation from both ends of the Black wire, then solder one end of the wire to the `GND` connector highlighted in the previous figure. 
 
 - [ ] Strip 1/4 inch of insulation from both ends of the Red wire, then solder one end of the wire to the 5V connector highlighted in the previous figure.
 
