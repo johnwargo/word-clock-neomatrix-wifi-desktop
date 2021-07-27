@@ -31,12 +31,12 @@ I forked the project because my personal implementation of the clock got way beh
 
 I've tried to maintain as much of the original code as possible. So far, I made the following changes:
 
-* Move the sketch's configuration settings to an external file I could exclude from the repo. 
-  By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
+* Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 * Removed the `DateTime theTime` global variable and declared it locally and passed it around as needed (global variables are bad).
-* Added more comments explaining the code in more detail (for users who want to better understand what's happening in the sketch).
+* Added more comments explaining the code in more detail (for users who want to better understand what's happening within the sketch).
 * Renamed the project files using dashes instead of camelCase; this names them consistently and, when you're working on systems where file name case matters, you won't have to deal with anything in upper case.
-* Updated the enclosure files to accommodate the Adafruit Feather board.
+* Updated the enclosure files to accommodate the Adafruit Feather board and added the files to a separate folder in the repo
+* Added LASER cutter files for a 12-inch clock face for a wall mounted unit.
 
 For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that deals properly with different temperature conditions.
 
@@ -59,9 +59,11 @@ Some things about Time:
 * With a network connection, the device will update the RTC date/time every day which should improve accuracy.
 * If the device loses its network connection, it will try periodically to reconnect. (IF I EVER ADD THAT FEATURE)
 
+
 Explain about RTC and NTP
 
 There's a loophole.
+
 
 ## Instructions
 
@@ -70,8 +72,6 @@ To keep this readme as simple as possible, I moved the assembly and software con
 * [Assembly](docs/assembly.md)
 * [Software Configuration](docs/software.md)
 
-
-
 ## Open Tasks
 
 * Add Wi-Fi reconnect: https://randomnerdtutorials.com/solved-reconnect-esp32-to-wifi/
@@ -79,4 +79,3 @@ To keep this readme as simple as possible, I moved the assembly and software con
 * Document all of the configuration settings in the software.md file
 * Write assembly instructions
 * Add instructions for installing software libraries 
-
