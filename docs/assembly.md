@@ -9,6 +9,8 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 * [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather)
 * [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
 * [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
+* [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002)
+* [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886)
 * LASER cut faceplate & enclosure
 * Enclosure Assembly Parts:
   * 12mm M3 bolts (10 each) for assembling the enclosure  
@@ -23,7 +25,7 @@ Pork loin filet mignon burgdoggen pig frankfurter jowl. Biltong jowl prosciutto,
 
 - [ ] Look at the back of the NeoPixel Matrix board and locate the three connectors (highlighted in orange) to the right of the board name in the following figure. In the following three steps, you must use the highlighted connectors (the board has two sets of connectors, and if you use the wrong ones things just won't work correctly). 
 
-The enclosure has an opening to accommodate wires connected to the highlighted connectors, and if you use the wrong ones, the matrix will be unside-down and the clock will never display the correct time. Get it right the first time, please. :-)
+The enclosure has an opening to accommodate wires connected to the highlighted connectors, and if you use the wrong ones, the matrix will be unside-down and the clock will never display the correct time. Get it right the first time, please.
 
 ![Adafruit NeoPixel NeoMatrix 8x8 Connections](images/neopixel-pins.png)
 
@@ -33,26 +35,29 @@ The enclosure has an opening to accommodate wires connected to the highlighted c
 
 - [ ] Strip 1/4 inch of insulation from both ends of the remaining wire, then solder one end of the wire to the DIN connector highlighted in the previous figure.
 
-- [ ] 
+- [ ] Grab the DS3231 Precision RTC FeatherWing board and solder the male headers to the board. The easiest way to do this is to insert the bottom posts of the header into a breadboard, then set the board on top and solder the pins exposed through the board (as shown in the following figure).
 
-- [ ] 
+![]()
 
-- [ ] 
+- [ ] On the DS3231 Precision RTC FeatherWing board, look for the connections highlighted in the following figure. 
 
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-Solder the components together
-
+**Note:** When I connected the wires to the board (described in the next three steps) I ran the wires up from the underside of the board and soldered them on the top
 
 ![DS3231 Precision RTC FeatherWing Connections](images/ds3231-pins.png)
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
+
+- [ ] 
 
 
 Assemble the case
