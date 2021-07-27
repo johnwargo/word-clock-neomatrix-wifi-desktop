@@ -58,7 +58,7 @@ The project requires the following hardware components:
   * M3 nuts (14 each) for assembling the enclosure
   * 8mm M2.5 bolts (4 each) for mounting the Feather device to the enclosure
   * M2.5 nuts (8 each) for mounting the Feather device to the enclosure
-  
+
 ## Clock Operation
 
 In the original project, the code set the real-time clock time using the build date/time for the Arduino Sketch running on the board. The sketch did this the first time it ran, and there was no easy way to update it later. As I mentioned in the introduction, I ran into some time leakage problems (after about a year running, the time wasn't anywhere near the actual time) so I wrote a simple modification to the code that let you reset it manually (read more in [Word Clock Time Issues](https://johnwargo.com/internet-of-things-iot/word-clock-time-issues.html)).
@@ -88,11 +88,13 @@ There's a loophole.
 
 To keep this readme as simple as possible, I moved the assembly and software configuration instructions into separate files:
 
-* [Assembly](docs/assembly.md)
-* [Software Configuration](docs/software.md)
+* [Electronics Assembly & Testing](docs/electronics-assembly.md)
+* [Enclosure Assembly](docs/enclosure-assembly.md)
+* [Software Configuration & Deployment](docs/software.md)
 
 ## Open Tasks
 
+* Write tester application
 * Add Wi-Fi reconnect: https://randomnerdtutorials.com/solved-reconnect-esp32-to-wifi/
 * Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
 * Document all of the configuration settings in the software.md file
