@@ -1,6 +1,10 @@
 # World Clock NeoMatrix 8x8 Wi-Fi Edition
 
-This repository contains a forked version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall).  Here's some details for the original project:
+This repository contains a forked version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall).  
+
+I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
+
+Here's some details for the original project:
 
 ## Original Project
 
@@ -52,8 +56,6 @@ To keep this readme as simple as possible, I moved the assembly and software con
 * [Software Configuration & Deployment](docs/software.md)
 
 ## Project Updates
-
-I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
 
 I've tried to maintain as much of the original code as possible. So far, I made the following changes:
 
