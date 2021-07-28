@@ -1,5 +1,7 @@
 # Word Clock (Feather) Software Configuration
 
+This document contains information about the software configuration for the Word Clock. 
+
 ## Required Libraries
 
 This project uses the following Arduino libraries:
@@ -22,7 +24,7 @@ To Install the libraries:
 
 ![Arduino IDE Library Manager](images/arduino-ide-02.png)
 
-## Configuration
+## Sketch Configuration
 
 When I forked the original project, I pulled all of the configuration settings into a separate file, then hid that file from the repository. I then made a copy of the configuration file under a different name and included that file in the repository. I did this because if I kept the 'real' configuration file in the repo, after you make changes in the file to support your needs, any subsequent update from the repository would overwrite your changes. 
 
