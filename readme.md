@@ -33,8 +33,7 @@ Acknowledgements:
 
 This updated version of the project uses the following hardware components:
 
-* [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather). 
-**Note:** make sure you order the device with 'Loose headers', you'll need those headers for the DS3231 Precision RTC FeatherWing.
+* [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather). Make sure you order the device with 'Loose headers', you'll need those headers for the DS3231 Precision RTC FeatherWing.
 * [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028).
 * [CR1220 12mm Diameter - 3V Lithium Coin Cell Battery](https://www.adafruit.com/product/380).
 * [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487).
