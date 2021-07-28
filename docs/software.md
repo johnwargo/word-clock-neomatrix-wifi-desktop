@@ -46,40 +46,49 @@ cp config.copyme config.h
 
 ## Configuration Settings
 
+The following sections describe the different configuration options for the project. I tried to break them up into groups to make it easier to find the settings you're looking for. 
+
+**Note:** Many of the settings are defined as C language `#define` components. According to the [Arduino Documentation](https://www.arduino.cc/reference/en/language/structure/further-syntax/define/):
+
+> `#define` is a useful C++ component that allows the programmer to give a name to a constant value before the program is compiled. Defined constants in arduino don’t take up any program memory space on the chip. The compiler will replace references to these constants with the defined value at compile time.
+
+As you modify these settings, pay special attention to the format of the constant. For example, they're not code, so there's no need to end the line with a semi-colon (;). Strings, however, must be in double quotes.
 
 ### Host Setting
 
+The Arduino WiFi library allows a sketch to set the device name before initializing the Wi-Fi connection. With this value set, the device identifies itself on the network with this name. [Arduino Documentation](https://www.arduino.cc/en/Reference/WiFiNINAsetHostname).
 
-// Use the following to set the Wi-Fi name for the device
 ```c
 #define HOST_NAME "Word Clock (ESP32)"
 ```
 
-
 ### LED Settings
 
-// brightness based on time of day- could try warmer colors at night?
+The project allows you to set LED brightness for day and night through these two constants:
+
 ```c
 #define DAYBRIGHTNESS 40
 #define NIGHTBRIGHTNESS 20
 ```
 
+You can also control the cutoff time (in hours) for day and night through these two constants:
 
-// cutoff times for day / night brightness. feel free to modify.
 ```c
 #define MORNINGCUTOFF 7  // when does daybrightness begin?   7am
 #define NIGHTCUTOFF   22 // when does nightbrightness begin? 10pm
 ```
 
+When the sketch starts, you can have it flash each word on the display for the number of milliseconds defined in this constant.
 
-// define delays
 ```c
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
+``` 
+
+While the sketch displays time, the colors behind the words shift over time; this constant defines how many milliseconds pass between each color shift.
+
+```c
 #define SHIFTDELAY 100   // controls color shifting speed
 ```
-
-
-
 
 ### NeoPixel Settings
 
