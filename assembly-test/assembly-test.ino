@@ -22,6 +22,7 @@ void setup() {
   Serial.println("setup()");
 
   // Initialize the realtime clock
+  Serial.println("Detecting RTC (or trying to anyway)");
   if (! rtc.begin()) {
     Serial.println("RTC Initialization Failed");
     Serial.flush();
