@@ -40,8 +40,8 @@ This is the code that initializes the NeoMatrix. If you're using the NeoMatrix b
 
 - [ ] Compile and deploy the sketch to the device. When the device reboots, the NeoMatrix will simultaneously blink all of its LEDs blue (one second on, one second off) until you remove power or replace the sketch with something. If the LEDs don't blink, then you have some hardware troubleshooting to do.
 
-- [ ] To see what's going on in the sketch, open the IDE's Serial Monitor and it will display the information shown in the following figure:
+- [ ] To see what's going on in the sketch, open the IDE's Serial Monitor and it will display similar information to what's shown in the following figure (I changed the output after I took the screen shot, so it will be slightly off):
 
 ![Arduino IDE Serial Monitor](images/serial-monitor.png)
 
-If the sketch cannot detect the RTC, then it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Seriam Monitor's output.
+If the sketch cannot detect the RTC, it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Serial Monitor's output.
