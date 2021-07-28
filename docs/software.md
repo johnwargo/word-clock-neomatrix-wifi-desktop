@@ -116,11 +116,18 @@ If using four-color (RGBW) LEDs in your NeoMatrix, use the following:
 
 ### Network Settings
 
-The whole point of this forked project is to enable a network connection in the clock so it can automatically update its real-time clock (RTC) over the network. The constants below define the SSID and password for the Wi-Fi network.
+The whole point of this forked project is to enable a network connection in the clock so it can automatically update its real-time clock (RTC) over the network. The constants below define the SSID and password for the Wi-Fi network. Enter the appropriate values for your local between the quote marks.
 
 ```c
 #define WIFI_SSID ""
 #define WIFI_PSWD ""
+```
+
+For example:
+
+```c
+#define WIFI_SSID "MyHomeNetwork"
+#define WIFI_PSWD "What are you looking at?"
 ```
 
 The constant below defines how many seconds the device will attempt to connect to the Wi-Fi network before it aborts the connection.
@@ -187,5 +194,3 @@ const char rulesDST[] = "US"; // US DST rules
 // const char rulesDST[] = "US"; // US DST rules
 const char rulesDST[] = "EU";   // EU DST rules
 ```
-
-
