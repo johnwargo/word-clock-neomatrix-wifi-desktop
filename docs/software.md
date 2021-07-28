@@ -45,11 +45,41 @@ cp config.copyme config.h
 ## Configuration Settings
 
 
+### Host Setting
+
+
 // Use the following to set the Wi-Fi name for the device
 ```c
 #define HOST_NAME "Word Clock (ESP32)"
 ```
 
+
+### LED Settings
+
+// brightness based on time of day- could try warmer colors at night?
+```c
+#define DAYBRIGHTNESS 40
+#define NIGHTBRIGHTNESS 20
+```
+
+
+// cutoff times for day / night brightness. feel free to modify.
+```c
+#define MORNINGCUTOFF 7  // when does daybrightness begin?   7am
+#define NIGHTCUTOFF   22 // when does nightbrightness begin? 10pm
+```
+
+
+// define delays
+```c
+#define FLASHDELAY 250  // delay for startup "flashWords" sequence
+#define SHIFTDELAY 100   // controls color shifting speed
+```
+
+
+
+
+### NeoPixel Settings
 
 
 ```c
@@ -57,11 +87,12 @@ cp config.copyme config.h
 ```
 
 
-// If using three-color (RGB) LEDs in your NeoMatrix, use the following
-//#define LED_CONFIG NEO_GRB + NEO_KHZ800
-// If using the four-color (RGBW) LEDs in your NeoMatrix, use the following
-//#define LED_CONFIG NEO_GRBW + NEO_KHZ800
-// If using Pixels wired for RGB bitstream (v1 FLORA pixels, not v2), use the following
+If using three-color (RGB) LEDs in your NeoMatrix, use the following
+#define LED_CONFIG NEO_GRB + NEO_KHZ800
+If using the four-color (RGBW) LEDs in your NeoMatrix, use the following
+#define LED_CONFIG NEO_GRBW + NEO_KHZ800
+If using Pixels wired for RGB bitstream (v1 FLORA pixels, not v2), use the following
+
 ```c
 #define LED_CONFIG NEO_GRBW + NEO_KHZ800
 ```
@@ -70,11 +101,26 @@ cp config.copyme config.h
 #define LED_CONFIG NEO_RGB + NEO_KHZ800
 ```
 
+### Network Settings
 
-// Do you live in a country or territory that observes Daylight Saving Time?
-// https://en.wikipedia.org/wiki/Daylight_saving_time_by_country
-// Use 1 if you observe DST, 0 if you don't. This is programmed for DST in the US / Canada. If your territory's DST operates differently,
-// you'll need to modify the code in the calcTheTime() function to make this work properly.
+
+```c
+#define WIFI_SSID ""
+#define WIFI_PSWD ""
+```
+
+
+```c
+#define WIFI_TIMEOUT 10 //seconds
+```
+
+
+### Time Settings
+
+Do you live in a country or territory that observes Daylight Saving Time?
+https://en.wikipedia.org/wiki/Daylight_saving_time_by_country
+Use 1 if you observe DST, 0 if you don't. This is programmed for DST in the US / Canada. If your territory's DST operates differently,
+you'll need to modify the code in the calcTheTime() function to make this work properly.
 
 ```c
 #define OBSERVE_DST 1
@@ -110,8 +156,6 @@ Examples:
 #define GMT_OFFSET 0  
 ```
 
-
-
 // Comment out the following line to display Date/Time values (in the monitor)
 // in European format
 ```c
@@ -131,32 +175,3 @@ const char rulesDST[] = "EU";   // EU DST rules
 ```
 
 
-// brightness based on time of day- could try warmer colors at night?
-```c
-#define DAYBRIGHTNESS 40
-#define NIGHTBRIGHTNESS 20
-```
-
-
-// cutoff times for day / night brightness. feel free to modify.
-```c
-#define MORNINGCUTOFF 7  // when does daybrightness begin?   7am
-#define NIGHTCUTOFF   22 // when does nightbrightness begin? 10pm
-```
-
-
-// define delays
-```c
-#define FLASHDELAY 250  // delay for startup "flashWords" sequence
-#define SHIFTDELAY 100   // controls color shifting speed
-```
-
-```c
-#define WIFI_SSID ""
-#define WIFI_PSWD ""
-```
-
-
-```c
-#define WIFI_TIMEOUT 10 //seconds
-```
