@@ -138,22 +138,20 @@ The constant below defines how many seconds the device will attempt to connect t
 
 ### Time Settings
 
-Do you live in a country or territory that observes Daylight Saving Time?
-https://en.wikipedia.org/wiki/Daylight_saving_time_by_country
-Use 1 if you observe DST, 0 if you don't. This is programmed for DST in the US / Canada. If your territory's DST operates differently,
+The settings in this section specify how the sketch deals with locale, time zone, and Daylight Savings Time (US).
+
+If you live in a country or territory that observes [Daylight Saving Time](https://en.wikipedia.org/wiki/Daylight_saving_time_by_country), adjust the following constant appropriately. Use 1 if you observe DST, 0 if you don't. 
+
+**Note:** From the original repo's notes: This is programmed for DST in the US / Canada. If your territory's DST operates differently,
 you'll need to modify the code in the calcTheTime() function to make this work properly.
 
 ```c
 #define OBSERVE_DST 1
 ```
 
-NTP returns the current time as Greenwich Mean Time (GMT), so to
-display the current time for your time zone, you must provide an
-offset value that's automatically added to the time returned from
-NTP. Enter a value below calculated based on your current time
-zone difference from GMT as follows:
+NTP returns the current time as Greenwich Mean Time (GMT), so to display the current time for your time zone, you must provide an offset value that's automatically added to the time returned from NTP. Enter a value below calculated based on your current time zone difference from GMT as follows:
 
-GMT_OFFSET * 3600
+   GMT_OFFSET * 3600
 
 For example, I live in GMT-5, so I'd calculate mine as:
 
@@ -161,17 +159,18 @@ For example, I live in GMT-5, so I'd calculate mine as:
 
 Examples:
 
--5 = -18000
--4 = -14400
--3 = -10800
--2 = -7200
--1 = -3600
-0 (GMT) = 0
-+1 = 3600
-+2 = 7200
-+3 = 10800
-+4 = 14400
-+5 = 18000
+* -5 = -18000
+* -4 = -14400
+* -3 = -10800
+* -2 = -7200
+* -1 = -3600
+* 0 (GMT) = 0
+* +1 = 3600
+* +2 = 7200
+* +3 = 10800
+* +4 = 14400
+* +5 = 18000
+
 
 ```c
 #define GMT_OFFSET 0  
