@@ -159,17 +159,17 @@ For example, I live in GMT-5, so I'd calculate mine as:
 
 Examples:
 
-GMT-5 = -18000
-GMT-4 = -14400
-GMT-3 = -10800
-GMT-2 = -7200
-GMT-1 = -3600
-GMT = 0
-GMT+1 = 3600
-GMT+2 = 7200
-GMT+3 = 10800
-GMT+4 = 14400
-GMT+5 = 18000
+* GMT-5 = -18000
+* GMT-4 = -14400
+* GMT-3 = -10800
+* GMT-2 = -7200
+* GMT-1 = -3600
+* GMT = 0
+* GMT+1 = 3600
+* GMT+2 = 7200
+* GMT+3 = 10800
+* GMT+4 = 14400
+* GMT+5 = 18000
 
 So, if your clock operates at GMT, or you want the clock to show GMT, use the following:
 
