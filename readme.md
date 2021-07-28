@@ -86,10 +86,3 @@ Some notes about the software/hardware:
 * With the sketch setting the date/time at startup based on the build date/time, if the device never connects to the Internet (to use NTP) then the clock will be as accurate as it can be with the stand-alone RTC. This means that time may slip a little over time, and you may periodically have to force a reset using the article mentioned above.
 * With a network connection, the device will update the RTC date/time every day which should improve overall accuracy.
 * If the device loses its network connection, it will try periodically (every 5 minutes) to reconnect.
-
-## Open Tasks
-
-* Document the setup and testing of the tester app
-* Write enclosure assembly instructions
-* Add instructions for installing software libraries 
-* Document all of the configuration settings in the `software.md` file
