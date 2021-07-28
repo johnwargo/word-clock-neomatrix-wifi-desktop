@@ -67,35 +67,28 @@ I've tried to maintain as much of the original code as possible. So far, I made 
 * Updated the enclosure files to accommodate the Adafruit Feather board and added the files to a separate folder in the repo
 * Added LASER cutter files for a 12-inch clock face for a wall mounted unit.
 
-For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that deals properly with different temperature conditions.
+For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that maintains time accuracy in different temperature conditions.
 
 ## Clock Changes
 
-In the original project, the code set the real-time clock time using the build date/time for the Arduino Sketch running on the board. The sketch did this the first time it ran, and there was no easy way to update it later. As I mentioned in the introduction, I ran into some time leakage problems (after about a year running, the time wasn't anywhere near the actual time) so I wrote a simple modification to the code that let you reset it manually (read more in [Word Clock Time Issues](https://johnwargo.com/internet-of-things-iot/word-clock-time-issues.html)).
+In the original project, the code set the real-time clock using the build date/time for the Arduino Sketch running on the board. The sketch did this the first time it ran, but there was no easy way to update it later. As I mentioned in the introduction, I ran into some time leakage problems (after about a year running, the time wasn't anywhere near the actual time) so I wrote a simple modification to the code that let you reset it manually (read more in [Word Clock Time Issues](https://johnwargo.com/internet-of-things-iot/word-clock-time-issues.html)).
 
-This version still has the original code that sets the RTC date/time using the build date/time, but since the sketch runs on an Arduino-compatible device with Wi-Fi, I can use Network Time Protocol to periodically update the RTC from the network. 
+This version still has the original code that sets the RTC date/time using the build date/time, but since the sketch runs on an Arduino-compatible device with Wi-Fi, I can use Network Time Protocol to periodically update the RTC from the network as well. 
 
 So, here's the order of RTC-related things in the sketch:
 
-1. On startup, if the sketch detects that the RTC lost power (or was reset), set the RTC date/time to the build date/time.
-2. On startup, if the device has a network connection (access to the Internet via Wi-Fi), use NTP to update the RTC date/time to the current date/time.
-3. At midnight every day, if the device has a Wi-Fi connection, use NTP to update the RTC date/time to the current date/time. If the device doesn't have a network connection, it uses the date/time value currently in the RTC.
+1. On startup, if the sketch detects that the RTC lost power (or was reset), set the RTC date/time to the sketch's build date/time.
+2. On startup, if the device has a network connection (access to the Internet via Wi-Fi), use NTP to update the RTC date/time.
+3. At midnight every day, if the device has a Wi-Fi connection, use NTP to update the RTC date/time to the current date/time. If the device doesn't have a network connection, the clock uses the date/time value currently in the RTC.
 
-Some things about Time:
+Some notes about the software/hardware:
 
-* With the sketch setting the date/time at startup based on the build date/time, if the device never connects to the Internet (to use NTP) then the clock will be as accurate as it can be with the stand-alone RTC.
-
-* With a network connection, the device will update the RTC date/time every day which should improve accuracy.
-* If the device loses its network connection, it will try periodically to reconnect. (IF I EVER ADD THAT FEATURE)
-
-
-Explain about RTC and NTP
-
-There's a loophole.
+* With the sketch setting the date/time at startup based on the build date/time, if the device never connects to the Internet (to use NTP) then the clock will be as accurate as it can be with the stand-alone RTC. This means that time may slip a little over time, and you may periodically have to force a reset using the article mentioned above.
+* With a network connection, the device will update the RTC date/time every day which should improve overall accuracy.
+* If the device loses its network connection, it will try periodically (every 5 minutes) to reconnect.
 
 ## Open Tasks
 
-* Add Wi-Fi reconnect: https://randomnerdtutorials.com/solved-reconnect-esp32-to-wifi/
 * Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
 * Document the setup and testing of the tester app
 * Write enclosure assembly instructions

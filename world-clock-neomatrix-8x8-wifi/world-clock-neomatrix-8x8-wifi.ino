@@ -186,7 +186,7 @@ void setup() {
     delay(1000);
     Serial.print(".");
   }
-  
+
   // Are we connected?
   if (WiFi.status() == WL_CONNECTED) {
     Serial.print("\nConnected, IP address: ");
@@ -221,33 +221,42 @@ void loop() {
   // What's the current time (according to the RTC)?
   DateTime theTime = getAdjustedTime();
 
-  // If it's just after midnight
-  if (theTime.hour() == 0 && theTime.minute() == 1) {
-    if (WiFi.status() == WL_CONNECTED) {
-      // updated the RTC From the network
-      getNetworkTime();
-      // retrieve the updated time (to use in the rest of the loop)
-      // since we're assuming it was just updated from the network
-      theTime = getAdjustedTime();
-      printTimeValue(theTime);
-    } else {
-      Serial.print("\nSkipping network time check; no Wi-Fi connection");
-    }
-  }
-
   // Did the minute just change?
   if (theTime.minute() != lastMinute) {
-    // Then update our last minute variable
+    // Then update the last minute variable so we don't run this again
+    // this minute
     lastMinute = theTime.minute();
     printTimeValue(theTime);
-  }
 
-  // and update the display with the new time
-  adjustBrightness(theTime);
-  displayTime(theTime);
-  // uncomment to show moon mode instead!
-  //mode_moon(theTime);
-  delay(100);
+    // Are we connected to the network?
+    if (WiFi.status() == WL_CONNECTED) {
+      // is it just after midnight?
+      if (theTime.hour() == 0 && theTime.minute() == 1) {
+        // then update the RTC From the network
+        getNetworkTime();
+        // retrieve the updated time (to use in the rest of the loop)
+        // since we're assuming it was just updated from the network
+        theTime = getAdjustedTime();
+        printTimeValue(theTime);
+      }
+    } else {
+      Serial.println("Wi-Fi not connected");
+      // I don't want to reconnect every minute, so I'm going
+      // to force a check every 5 minutes
+      if (theTime.minute() % 5 == 0) {
+        Serial.println("Retrying Wi-Fi connection");
+        WiFi.reconnect();
+      }
+    }
+
+    // Set the LED brightness based on time of day
+    adjustBrightness(theTime);
+    // and update the display with the new time
+    displayTime(theTime);
+    // uncomment to show moon mode instead!
+    //mode_moon(theTime);
+    delay(100);
+  }
 }
 
 void clearDisplay() {
