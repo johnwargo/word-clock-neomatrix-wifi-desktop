@@ -33,19 +33,19 @@ Acknowledgements:
 
 This updated version of the project uses the following hardware components:
 
-* [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather)
-* [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
-* [CR1220 12mm Diameter - 3V Lithium Coin Cell Battery](https://www.adafruit.com/product/380)
-* [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
-* (Optional) [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002); these should come with the Feather Huzzah32
-* [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886)
-* LASER cut faceplate & enclosure (I'm using all capital letters for LASER because it is, after all, an acronym)
+* [Adafruit HUZZAH32 – ESP32 Feather Board](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather). **Note:** make sure you order the device with 'Loose headers', you'll need those headers for the DS3231 Precision RTC FeatherWing.
+* [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028).
+* [CR1220 12mm Diameter - 3V Lithium Coin Cell Battery](https://www.adafruit.com/product/380).
+* [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487).
+* (Optional) [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002); these should already come with the Feather Huzzah32.
+* [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886).
+* LASER cut faceplate & enclosure (I'm using all capital letters for LASER because it is, after all, an acronym).
 * Enclosure Assembly Parts:
-  * 12mm M3 bolts (10 each); enclosure assembly
-  * 8mm M3 bolts with nuts (4 each); mounting the LED Matrix to the enclosure
-  * M3 nuts (14 each); enclosure assembly
-  * 8mm M2.5 bolts (4 each); mounting the Feather device to the enclosure
-  * M2.5 nuts (8 each); mounting the Feather device to the enclosure
+  * 12mm M3 bolts (10 each); enclosure assembly.
+  * 8mm M3 bolts with nuts (4 each); mounting the LED Matrix to the enclosure.
+  * M3 nuts (14 each); enclosure assembly.
+  * 8mm M2.5 bolts (4 each); mounting the Feather device to the enclosure.
+  * M2.5 nuts (8 each); mounting the Feather device to the enclosure.
 
 ## Instructions
 
@@ -57,7 +57,7 @@ To keep this readme as simple as possible, I moved the assembly and software con
 
 ## Project Updates
 
-I've tried to maintain as much of the original code as possible. So far, I made the following changes:
+I've tried to maintain as much of the original code as possible; so far, I made the following changes:
 
 * Move the sketch's configuration settings to an external file I could exclude from the repo. By doing this, and by including a separate file users must rename before compiling the project, users can refresh their local code base from the public repository without wiping out their configuration settings. 
 * Removed the `DateTime theTime` global variable and declared it locally and passed it around as needed (global variables are bad).
