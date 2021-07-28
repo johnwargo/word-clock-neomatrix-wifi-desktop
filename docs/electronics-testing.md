@@ -10,9 +10,11 @@ These instructions assume you're comfortible using the Arduino IDE (desktop or w
 
 - [ ] Open the Arduino IDE, then open the Library Manager. To do this, in the IDE open the **Tools** menu, then **Manage Libraries** as shown in the following figure.
 
-![Arduino IDE Toole Menu](images/arduino-ide-01.png)
+![Arduino IDE Tools Menu](images/arduino-ide-01.png)
 
-- [ ] 
+- [ ] Install the Adafruit NeoMatrix library, the Adafruit NeoPixel library, and the Adafruit version of the RTC Library (RTClib). 
+
+![Arduino IDE Library Manager](images/arduino-ide-02.png)
 
 - [ ] 
 
