@@ -79,8 +79,6 @@ const char rulesDST[] = "US"; // US DST rules
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
 #define SHIFTDELAY 100   // controls color shifting speed
 
-#define ENABLE_MONITOR
-
 #define WIFI_SSID ""
 #define WIFI_PSWD ""
 #define WIFI_TIMEOUT 10 //seconds
