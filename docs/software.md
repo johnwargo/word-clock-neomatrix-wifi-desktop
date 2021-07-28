@@ -54,7 +54,7 @@ The following sections describe the different configuration options for the proj
 
 As you modify these settings, pay special attention to the format of the constant. For example, they're not code, so there's no need to end the line with a semi-colon (;). Strings, however, must be in double quotes.
 
-### Host Setting
+### Host
 
 The Arduino WiFi library allows a sketch to set the device name before initializing the Wi-Fi connection. With this value set, the device identifies itself on the network with this name. [Arduino Documentation](https://www.arduino.cc/en/Reference/WiFiNINAsetHostname).
 
@@ -92,39 +92,42 @@ While the sketch displays time, the colors behind the words shift over time; thi
 
 ### NeoPixel Settings
 
+The `NEOPIN` constant defines the Feather GPIO pin connected to the `DIN` connector on the NeoMatrix. If you assembled the electronics components as instructed in the assembly documentation, you don't need to make any changes here. If you connected the NeoMatrix to a different output pin on the Feather, you must change the value here accordingly. 
+
+The Pinout labeling on the Feather is a little weird - the instructions I provided tell you to connect the NeoMatrix `DIN` to `A0` on the Feather, but that actually corresponds to GPIO 26 which is what you see in this constant.
 
 ```c
 #define NEOPIN 26  
 ```
 
+If you're using the NeoMatrix board listed in the [Hardware Components](https://github.com/johnwargo/world-clock-neomatrix-8x8-wifi#hardware-components) section of the repository's `readme.md` file, then you don't need to make any changes here. If you're using different hardware, you must adjust the code to accommodate your hardware configuration using the instructions provided in [Arduino Library Use](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use).
 
-If using three-color (RGB) LEDs in your NeoMatrix, use the following
-#define LED_CONFIG NEO_GRB + NEO_KHZ800
-If using the four-color (RGBW) LEDs in your NeoMatrix, use the following
-#define LED_CONFIG NEO_GRBW + NEO_KHZ800
-If using Pixels wired for RGB bitstream (v1 FLORA pixels, not v2), use the following
-
-```c
-#define LED_CONFIG NEO_GRBW + NEO_KHZ800
-```
+For example, if you're using three-color (RGB) LEDs in your NeoMatrix, use the following:
 
 ```c
 #define LED_CONFIG NEO_RGB + NEO_KHZ800
 ```
 
+If using four-color (RGBW) LEDs in your NeoMatrix, use the following:
+
+```c
+#define LED_CONFIG NEO_GRBW + NEO_KHZ800
+```
+
 ### Network Settings
 
+The whole point of this forked project is to enable a network connection in the clock so it can automatically update its real-time clock (RTC) over the network. The constants below define the SSID and password for the Wi-Fi network.
 
 ```c
 #define WIFI_SSID ""
 #define WIFI_PSWD ""
 ```
 
+The constant below defines how many seconds the device will attempt to connect to the Wi-Fi network before it aborts the connection.
 
 ```c
 #define WIFI_TIMEOUT 10 //seconds
 ```
-
 
 ### Time Settings
 
