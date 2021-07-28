@@ -122,10 +122,12 @@ Examples:
 // Define US or EU rules for DST comment out as required. More countries could be added with different rules in DST_RTC.cpp
 ```c
 const char rulesDST[] = "US"; // US DST rules
+// const char rulesDST[] = "EU";   // EU DST rules
 ```
 
 ```c
-// const char rulesDST[] = "EU";   // EU DST rules
+// const char rulesDST[] = "US"; // US DST rules
+const char rulesDST[] = "EU";   // EU DST rules
 ```
 
 
