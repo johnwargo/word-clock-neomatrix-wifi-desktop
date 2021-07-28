@@ -34,31 +34,14 @@ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
 
 ```
 
-This is the code that initializes the NeoMatrix. If you're using the NeoMatrix board listed in the Hardware Components section of the repository's `readme.md` file, then you won't need to make any changes here. If you're using different hardware, you must adjust that code to accommodate your hardware configuration using the instructions provided in [Arduino Library Use](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use).
+This is the code that initializes the NeoMatrix. If you're using the NeoMatrix board listed in the [Hardware Components](https://github.com/johnwargo/world-clock-neomatrix-8x8-wifi#hardware-components) section of the repository's `readme.md` file, then you won't need to make any changes here. If you're using different hardware, you must adjust the initialization code to accommodate your hardware configuration using the instructions provided in [Arduino Library Use](https://learn.adafruit.com/adafruit-neopixel-uberguide/arduino-library-use).
 
-- [ ] 
+- [ ] Configure the IDE for the Feather board configuration, setting the Board, Port, and Programmer as described in the [Adafruit HUZZAH32 - ESP32 Feather](https://learn.adafruit.com/adafruit-huzzah32-esp32-feather) documentation. 
 
-- [ ] 
+- [ ] Compile and deploy the sketch to the device. When the device reboots, the NeoMatrix will simultaneously blink all of its LEDs blue (one second on, one second off) until you remove power or replace the sketch with something. If the LEDs don't blink, then you have some hardware troubleshooting to do.
 
-- [ ] 
+- [ ] To see what's going on in the sketch, open the IDE's Serial Monitor and it will display the information shown in the following figure:
 
-- [ ] 
+![Arduino IDE Serial Monitor](images/serial-monitor.png)
 
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-
-- [ ] 
-
-![]()
+If the sketch cannot detect the RTC, then it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Seriam Monitor's output.
