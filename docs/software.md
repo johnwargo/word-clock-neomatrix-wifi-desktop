@@ -138,7 +138,7 @@ The constant below defines how many seconds the device will attempt to connect t
 
 ### Time Settings
 
-The settings in this section specify how the sketch deals with locale, time zone, and Daylight Savings Time (US).
+The settings in this section specify how the sketch deals with locale, time zone, and Daylight Savings Time.
 
 If you live in a country or territory that observes [Daylight Saving Time](https://en.wikipedia.org/wiki/Daylight_saving_time_by_country), adjust the following constant appropriately. Use 1 if you observe DST, 0 if you don't. 
 
@@ -151,43 +151,60 @@ you'll need to modify the code in the calcTheTime() function to make this work p
 
 NTP returns the current time as Greenwich Mean Time (GMT), so to display the current time for your time zone, you must provide an offset value that's automatically added to the time returned from NTP. Enter a value below calculated based on your current time zone difference from GMT as follows:
 
-   GMT_OFFSET * 3600
+> GMT_OFFSET * 3600
 
 For example, I live in GMT-5, so I'd calculate mine as:
 
-   -5 * 3600 = -18000
+> -5 * 3600 = -18000
 
 Examples:
 
-* -5 = -18000
-* -4 = -14400
-* -3 = -10800
-* -2 = -7200
-* -1 = -3600
-* 0 (GMT) = 0
-* +1 = 3600
-* +2 = 7200
-* +3 = 10800
-* +4 = 14400
-* +5 = 18000
+GMT-5 = -18000
+GMT-4 = -14400
+GMT-3 = -10800
+GMT-2 = -7200
+GMT-1 = -3600
+GMT = 0
+GMT+1 = 3600
+GMT+2 = 7200
+GMT+3 = 10800
+GMT+4 = 14400
+GMT+5 = 18000
 
+So, if your clock operates at GMT, or you want the clock to show GMT, use the following:
 
 ```c
 #define GMT_OFFSET 0  
 ```
 
-// Comment out the following line to display Date/Time values (in the monitor)
-// in European format
+For a clock running in Charlotte, North Carolina (US), use:
+
+```c
+#define GMT_OFFSET -18000
+```
+
+Every minute, the clock prints the current date/time value to the Serial Monitor. To display the date/time in US format (Month/Day/Year Hour:Minute), use:
+
 ```c
 #define USE_US_DATE_TIME_FORMAT
 ```
 
+To print the date/time value to the Serial Monitor in European format (Year-Month-Day 24Hour:Minute), comment out the constant like this: 
 
-// Define US or EU rules for DST comment out as required. More countries could be added with different rules in DST_RTC.cpp
+```c
+// #define USE_US_DATE_TIME_FORMAT
+```
+
+The original project's author published a library that automatically deals with Daylight Savings Time issues in the sketch. You can control which rules the library uses for the clock. 
+
+To use the US rules, comment out the EU string as shown in the following example:
+
 ```c
 const char rulesDST[] = "US"; // US DST rules
 // const char rulesDST[] = "EU";   // EU DST rules
 ```
+
+To use the European rules, comment out the US string as shown in the following example:
 
 ```c
 // const char rulesDST[] = "US"; // US DST rules
