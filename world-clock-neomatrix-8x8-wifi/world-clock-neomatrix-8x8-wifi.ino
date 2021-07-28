@@ -171,7 +171,7 @@ void setup() {
   int loopCounter = 0;  // number of times we looped through the connecting loop
   // Connect to the Wi-Fi network
   WiFi.setHostname(HOST_NAME);
-  Serial.print("\nConnecting to the '");
+  Serial.print("Connecting to the '");
   Serial.print(WIFI_SSID);
   Serial.print("' network");
   WiFi.begin(WIFI_SSID, WIFI_PSWD);
@@ -271,7 +271,7 @@ DateTime getAdjustedTime() {
 }
 
 void getNetworkTime() {
-  Serial.println("\nGetting network time...");
+  Serial.println("Getting network time...");
   // Illuminate the first T in the matrix in green when checking network time
   clearDisplay();
   matrix.setPixelColor(LETTER_T, 255, 0, 0);
