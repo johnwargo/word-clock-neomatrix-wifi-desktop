@@ -1,28 +1,29 @@
-/* 
- *  This is the configuration file for the project. The original source code repository
- *  for this project has the file included as `config.copyme` and you're supposed to 
- *  copy the file to `config.h` before trying to compile and deploy the sketch to the
- *  Arduino hardware. This file won't appear in the Arduino IDE unless it's been copied
- *  to the right file name.
- *  
- *  Once you copy the file, make any configuration changes you want here and they won't
- *  be overwritten if you ever pull updated code from the Internet.
+/*
+    This is the configuration file for the project. The original source code repository
+    for this project has the file included as `config.copyme` and you're supposed to
+    copy the file to `config.h` before trying to compile and deploy the sketch to the
+    Arduino hardware. This file won't appear in the Arduino IDE unless it's been copied
+    to the right file name.
+
+    Once you copy the file, make any configuration changes you want here and they won't
+    be overwritten if you ever pull updated code from the Internet.
 */
 
 #ifndef CONFIG_H
 #define CONFIG_H
 
+// Use the following to set the Wi-Fi name for the device
+#define HOST_NAME "Word Clock (ESP32)"
+
 // define pins
-#define NEOPIN 8  // connect to DIN on NeoMatrix 8x8
-#define RTCGND A2 // use this as DS1307 breakout ground 
-#define RTCPWR A3 // use this as DS1307 breakout power
+#define NEOPIN 26  // connect to DIN on NeoMatrix 8x8
 
 // If using three-color (RGB) LEDs in your NeoMatrix, use the following
 //#define LED_CONFIG NEO_GRB + NEO_KHZ800
 // If using the four-color (RGBW) LEDs in your NeoMatrix, use the following
-#define LED_CONFIG NEO_GRBW + NEO_KHZ800
+//#define LED_CONFIG NEO_GRBW + NEO_KHZ800
 // If using Pixels wired for RGB bitstream (v1 FLORA pixels, not v2), use the following
-//#define LED_CONFIG NEO_RGB + NEO_KHZ800
+#define LED_CONFIG NEO_RGB + NEO_KHZ800
 
 // Do you live in a country or territory that observes Daylight Saving Time?
 // https://en.wikipedia.org/wiki/Daylight_saving_time_by_country
@@ -31,32 +32,32 @@
 #define OBSERVE_DST 1
 
 /* NTP returns the current time as Greenwich Mean Time (GMT), so to
- * display the current time for your time zone, you must provide an
- * offset value that's automatically added to the time returned from
- * NTP. Enter a value below calculated based on your current time 
- * zone difference from GMT as follows:
- * 
- * GMT_OFFSET * 3600
- * 
- * For example, I live in GMT-5, so I'd calculate mine as: 
- * 
- *    -5 * 3600 = -18000
- *    
- * Examples:
- * 
- * -5 = -18000
- * -4 = -14400
- * -3 = -10800
- * -2 = -7200
- * -1 = -3600
- * GMT = 0
- * +1 = 3600
- * +2 = 7200
- * +3 = 10800
- * +4 = 14400
- * +5 = 18000
+   display the current time for your time zone, you must provide an
+   offset value that's automatically added to the time returned from
+   NTP. Enter a value below calculated based on your current time
+   zone difference from GMT as follows:
+
+   GMT_OFFSET * 3600
+
+   For example, I live in GMT-5, so I'd calculate mine as:
+
+      -5 * 3600 = -18000
+
+   Examples:
+
+   -5 = -18000
+   -4 = -14400
+   -3 = -10800
+   -2 = -7200
+   -1 = -3600
+   0 (GMT) = 0
+   +1 = 3600
+   +2 = 7200
+   +3 = 10800
+   +4 = 14400
+   +5 = 18000
 */
-#define GMT_OFFSET -18000
+#define GMT_OFFSET 0  
 
 // Comment out the following line to display Date/Time values (in the monitor)
 // in European format
@@ -78,8 +79,10 @@ const char rulesDST[] = "US"; // US DST rules
 #define FLASHDELAY 250  // delay for startup "flashWords" sequence
 #define SHIFTDELAY 100   // controls color shifting speed
 
+#define ENABLE_MONITOR
+
 #define WIFI_SSID ""
 #define WIFI_PSWD ""
-#define WIFI_TIMEOUT 60 //seconds
+#define WIFI_TIMEOUT 10 //seconds
 
 #endif
