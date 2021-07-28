@@ -18,7 +18,7 @@ To Install the libraries:
 
 - [ ] Locate each required library individually (its easiest to use Search) then install it into the IDE. 
 
-> **Note:** There are multiple RTC libraries, so make sure you select (and install) the right one.
+**Note:** There are multiple RTC libraries, so make sure you select (and install) the right one.
 
 ![Arduino IDE Library Manager](images/arduino-ide-02.png)
 
