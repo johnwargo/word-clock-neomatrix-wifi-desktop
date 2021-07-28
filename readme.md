@@ -51,10 +51,10 @@ This updated version of the project uses the following hardware components:
 
 To keep this readme as simple as possible, I moved the assembly and software configuration instructions into separate files:
 
-* [Electronics Assembly](docs/electronics-assembly.md)
-* [Electronics Testing](docs/electronics-testing.md)
-* [Enclosure Assembly](docs/enclosure-assembly.md)
-* [Software Configuration](docs/software.md)
+1. [Electronics Assembly](docs/electronics-assembly.md)
+2. [Electronics Testing](docs/electronics-testing.md)
+3. [Enclosure Assembly](docs/enclosure-assembly.md)
+4. [Software Configuration](docs/software.md)
 
 ## Project Updates
 
