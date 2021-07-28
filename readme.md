@@ -89,7 +89,6 @@ Some notes about the software/hardware:
 
 ## Open Tasks
 
-* Update the `readme.md` documentation explaining how the RTC and NTP stuff works together
 * Document the setup and testing of the tester app
 * Write enclosure assembly instructions
 * Add instructions for installing software libraries 
