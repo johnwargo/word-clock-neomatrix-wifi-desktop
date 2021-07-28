@@ -46,4 +46,6 @@ When you're all done, the assembly should look similar to the following:
 
 - [ ] Finally, insert the CR1220 battery into the battery holder on top of the Feather assembly
 
-To help validate correct assembly, I included a simple tester application with the project. To view instructions on how to test the hardware, refer to [Electronics Testing](electronics-testing.md).
+---
+
+To help validate correct assembly, I included a simple tester application with the project. To view instructions on how to test the hardware, refer to [Electronics Testing](electronics-testing.md). To skip testing the hardware and jump ahead to assembling the enclosure refer to [Enclosure Assembly](enclosure-assembly.md).

@@ -44,4 +44,8 @@ This is the code that initializes the NeoMatrix. If you're using the NeoMatrix b
 
 ![Arduino IDE Serial Monitor](images/serial-monitor.png)
 
-If the sketch cannot detect the RTC, it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Serial Monitor's output. This too is something you'll have to troubleshoot on your own. 
+If the sketch cannot detect the RTC, it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Serial Monitor's output. This too is something you'll have to troubleshoot on your own.
+
+---
+
+Next step is to assemble the enclosure (with the electronic components), you can find instructions in [Enclosure Assembly](enclosure-assembly.md).
