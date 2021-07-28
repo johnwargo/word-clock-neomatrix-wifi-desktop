@@ -1,12 +1,8 @@
-# Word Clock (Feather) Software Details
+# Word Clock (Feather) Software Configuration
 
+## Required Libraries
 
-
-## Software
-
-This code requires the following libraries:
-
-install them
+This project uses the following Arduino libraries:
 
 - [RTClib](https://github.com/adafruit/RTClib)
 - [DST_RTC](https://github.com/andydoro/DST_RTC)
@@ -14,7 +10,17 @@ install them
 - [Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel)
 - [Adafruit_NeoMatrix](https://github.com/adafruit/Adafruit_NeoMatrix)
 
+To Install the libraries:
 
+- [ ] Open the Arduino IDE, then open the Library Manager. To do this, open the **Tools** menu, then select **Manage Libraries** as shown in the following figure.
+
+![Arduino IDE Tools Menu](images/arduino-ide-01.png)
+
+- [ ] Locate each required library individually (its easiest to use Search) then install it into the IDE. 
+
+> **Note:** There are multiple RTC libraries, so make sure you select (and install) the right one.
+
+![Arduino IDE Library Manager](images/arduino-ide-02.png)
 
 ## Configuration
 
