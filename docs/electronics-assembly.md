@@ -1,8 +1,6 @@
-# Word Clock (Feather) Electronics Assembly & Testing
+# Word Clock (Feather) Electronics Assembly
 
-This document contains the complete instructions for assemblying and testing the electronics components for the project. For instructions on how to assemble the enclosure, refer to [Enclosure Assembly](enclosure-assembly.md).
-
-## Electrinics Assembly Instructions
+This document contains the complete instructions for assemblying the electronics components for the project. 
 
 We'll start by wiring all of the electronic components together. 
 
@@ -49,43 +47,3 @@ When you're all done, the assembly should look similar to the following:
 ![Fully assembled electronics](images/assembled-electronics.png)
 
 - [ ] Finally, insert the CR1220 battery into the battery holder on top of the Feather assembly
-
-## Electronics Testing
-
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-
-- [ ] 
-
-![]()
