@@ -2,8 +2,6 @@
 
 This document contains the complete instructions for assemblying the electronics components for the project. 
 
-We'll start by wiring all of the electronic components together. 
-
 - [ ] Cut three lengths of stranded wire (22ga or so) to a length of 4 inches. You can use the same color for all, but I wouldn't (because this will just get confusing later on if you do). Instead, use three separate colors: red and black (for my 5V connection [red] and ground [black] wire) plus one other color.
 
 - [ ] Look at the back of the NeoPixel Matrix board and locate the three connectors (highlighted in orange) to the right of the board name in the following figure. In the following three steps, you must use the highlighted connectors (the board has two sets of connectors, and if you use the wrong ones things just won't work correctly). 
@@ -47,3 +45,5 @@ When you're all done, the assembly should look similar to the following:
 ![Fully assembled electronics](images/assembled-electronics.png)
 
 - [ ] Finally, insert the CR1220 battery into the battery holder on top of the Feather assembly
+
+To help validate correct assembly, I included a simple tester application with the project. To view instructions on how to test the hardware, refer to [Electronics Testing](electronics-testing.md).
