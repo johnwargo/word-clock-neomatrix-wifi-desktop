@@ -37,7 +37,7 @@ This updated version of the project uses the following hardware components:
 * [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028)
 * [CR1220 12mm Diameter - 3V Lithium Coin Cell Battery](https://www.adafruit.com/product/380)
 * [NeoPixel NeoMatrix 8x8](https://www.adafruit.com/products/1487)
-* [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002)
+* (Optional - these should come with the Feather Huzzah32) [Short Feather Male Headers - 12-pin and 16-pin Male Header Set](https://www.adafruit.com/product/3002)
 * [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886)
 * LASER cut faceplate & enclosure (I'm using all capital letters for LASER because it is, after all, an acronym)
 * Enclosure Assembly Parts:
