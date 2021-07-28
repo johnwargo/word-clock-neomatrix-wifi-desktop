@@ -16,7 +16,7 @@ These instructions assume you're comfortible using the Arduino IDE (desktop or w
 
 ![Arduino IDE Tools Menu](images/arduino-ide-01.png)
 
-- [ ] Install the **Adafruit NeoMatrix** library, the **Adafruit NeoPixel** library, and the Adafruit version of the **RTC** Library (RTClib). An example of the RTC Library is shown in the following figure.
+- [ ] Install the **Adafruit NeoMatrix** library, the **Adafruit NeoPixel** library, and the Adafruit version of the **RTC** Library (RTClib). An example of the RTC Library is shown in the following figure. There are multiple RTC libraries, so make sure you select (and install) the right one.
 
 ![Arduino IDE Library Manager](images/arduino-ide-02.png)
 
@@ -44,4 +44,4 @@ This is the code that initializes the NeoMatrix. If you're using the NeoMatrix b
 
 ![Arduino IDE Serial Monitor](images/serial-monitor.png)
 
-If the sketch cannot detect the RTC, it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Serial Monitor's output.
+If the sketch cannot detect the RTC, it will display a message in the monitor then abort the sketch - this will be clearly reflected in the Serial Monitor's output. This too is something you'll have to troubleshoot on your own. 
