@@ -8,11 +8,13 @@ I added this document because I figured you'd want to test the hardware configur
 
 These instructions assume you're comfortible using the Arduino IDE (desktop or web) to compile and deploy Arduino sketches. I don't use the arduino Web IDE, so what you'll find here are instructions for the desktop IDE.
 
-- [ ] Open the Arduino IDE, then open the Library Manager. To do this, in the IDE open the **Tools** menu, then **Manage Libraries** as shown in the following figure.
+- [ ] Open the Arduino IDE, then open the test sketch located in the repositories `assembly-test` folder. The sketch is called, unsurprisingly, `assembly-test.ini`.
+
+- [ ] In the Arduino IDE, open the Library Manager. To do this, open the **Tools** menu, then select **Manage Libraries** as shown in the following figure.
 
 ![Arduino IDE Tools Menu](images/arduino-ide-01.png)
 
-- [ ] Install the Adafruit NeoMatrix library, the Adafruit NeoPixel library, and the Adafruit version of the RTC Library (RTClib). 
+- [ ] Install the **Adafruit NeoMatrix** library, the **Adafruit NeoPixel** library, and the Adafruit version of the **RTC** Library (RTClib). An example of the RTC Library is shown in the following figure.
 
 ![Arduino IDE Library Manager](images/arduino-ide-02.png)
 
