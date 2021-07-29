@@ -90,7 +90,6 @@ uint64_t mask;
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
-//RTC_DS1307 RTC; // Establish clock object
 RTC_DS3231 rtc; // Establish clock object
 DST_RTC dst_rtc; // DST object
 
@@ -122,17 +121,7 @@ void setup() {
 
   // set pinmodes
   pinMode(NEOPIN, OUTPUT);
-
-  // ============================================
-  // Don't think we'll need these on the Feather
-  // ============================================
-  //  // set analog pins to power DS1307 breakout!
-  //  pinMode(RTCGND, OUTPUT); // analog 2
-  //  pinMode(RTCPWR, OUTPUT); // analog 3
-  //  digitalWrite(RTCGND, LOW);  // GND for RTC
-  //  digitalWrite(RTCPWR, HIGH); // PWR for RTC
-  // ============================================
-
+  
   // Initialize the realtime clock
   if (! rtc.begin()) {
     Serial.println("\nUnable to initialize RTC");
