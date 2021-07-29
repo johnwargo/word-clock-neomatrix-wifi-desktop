@@ -228,6 +228,16 @@ void loop() {
     lastMinute = theTime.minute();
     printTimeValue(theTime);
 
+    // Check the Wi-Fi connection (and reconnect if
+    // necessary) every 5 minutes
+    if (WiFi.status() != WL_CONNECTED) {
+      Serial.println("Wi-Fi not connected");
+      if (theTime.minute() % 5 == 0) {
+        Serial.println("Retrying Wi-Fi connection");
+        WiFi.reconnect();
+      }
+    }
+
     // Are we connected to the network?
     if (WiFi.status() == WL_CONNECTED) {
       // is it just after midnight?
@@ -238,14 +248,6 @@ void loop() {
         // since we're assuming it was just updated from the network
         theTime = getAdjustedTime();
         printTimeValue(theTime);
-      }
-    } else {
-      Serial.println("Wi-Fi not connected");
-      // I don't want to reconnect every minute, so I'm going
-      // to force a check every 5 minutes
-      if (theTime.minute() % 5 == 0) {
-        Serial.println("Retrying Wi-Fi connection");
-        WiFi.reconnect();
       }
     }
 
