@@ -1,4 +1,4 @@
-# World Clock NeoMatrix 8x8 Wi-Fi Edition
+# World Clock NeoMatrix Wi-Fi Desktop
 
 This repository contains a forked version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall).  
 
