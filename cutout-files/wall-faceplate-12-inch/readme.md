@@ -7,6 +7,7 @@ I also wanted a frosted piece to mount behind the faceplate so I threw together 
 Files in this folder:
 
 * `word-clock-faceplate-12-inch-ponoko.eps` - The World Clock faceplate at 12.5" x 12.5"; I Added 0.25" border to each side so I could fit the faceplace inside of a 0.25" groove in the wooden enclosure I'm building for this.
-* `world-clock-blank-12-inch.svg` - A simple 12.5" x 12.5" solid piece I could have LASER cut and use as a difuser behind the faceplate.
+* `world-clock-blank-12-inch.svg` - A simple 12.5" x 12.5" solid piece I could have LASER cut and use as a diffuser behind the faceplate.
 
-This is just the faceplate, you'll need to build your own enclosure around it.
+This is just the faceplate, you'll need to build your own enclosure around it with dividers between the LED cells. I'll write about how I did it once I finish the project.
+
