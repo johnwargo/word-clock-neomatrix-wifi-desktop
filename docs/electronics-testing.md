@@ -1,4 +1,4 @@
-# Word Clock (Feather) Electronics Testing
+# World Clock NeoMatrix Wi-Fi Desktop Electronics Testing
 
 This document contains the complete instructions for testing the electronics components for the project. For instructions on how to assemble the electronics, refer to [Electronics Assembly](electronics-assembly.md).
 

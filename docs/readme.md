@@ -1,4 +1,4 @@
-# Word Clock (Feather) Documentation
+# World Clock NeoMatrix Wi-Fi Desktop Documentation
 
 To keep this readme as simple as possible, I moved the assembly and software configuration instructions into separate files:
 

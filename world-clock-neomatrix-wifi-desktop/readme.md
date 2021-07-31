@@ -1,9 +1,3 @@
-# World Clock NeoMatrix 8x8 Wi-Fi
+# World Clock NeoMatrix - Arduino Code
 
-This folder contains the Arduino source code for the project. 
-
-
-
-
-
-## 
+This folder contains the Arduino source code for the project.

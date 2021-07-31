@@ -1,4 +1,4 @@
-# Word Clock (Feather) Electronics Assembly
+# World Clock NeoMatrix Wi-Fi Desktop Electronics Assembly
 
 This document contains the complete instructions for assemblying the electronics components for the project. 
 

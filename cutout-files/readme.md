@@ -1,4 +1,4 @@
-# Word Clock Cutout files
+# World Clock NeoMatrix Wi-Fi Desktop Cutout files
 
 This folder contains the LASER cutout files for different versions of the project:
 
