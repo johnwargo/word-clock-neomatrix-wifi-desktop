@@ -41,10 +41,10 @@ This updated version of the project uses the following hardware components:
 * [Header Kit for Feather - 12-pin and 16-pin Female Header Set](https://www.adafruit.com/product/2886).
 * LASER cut faceplate & enclosure (I'm using all capital letters for LASER because it is, after all, an acronym).
 * Enclosure Assembly Parts:
-  * 10 @ M3x12mm bolts; enclosure assembly.
-  * 4 @ M3x8mm bolts; mounting the LED Matrix to the enclosure.
+  * 10 @ M3x12mm machine screws (bolts); enclosure assembly.
+  * 4 @ M3x8mm machine screws (bolts); mounting the LED Matrix to the enclosure.
   * 14 @ M3 nuts; enclosure assembly.
-  * 4 @ M2.5x12mm bolts; mounting the Feather device to the enclosure.
+  * 4 @ M2.5x12mm machine screws (bolts); mounting the Feather device to the enclosure.
   * 4 @ M2.5 nuts; mounting the Feather device to the enclosure.
 
 ## Instructions
