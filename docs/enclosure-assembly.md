@@ -60,7 +60,7 @@ This is where some of this gets tricky because you'll probably start dropping nu
 
 ![Enclosure Image #12](enclosure-assembly-12.jpg)
 
-- [ ] 
+- [ ] cut a piece of white paper
 
 ![Enclosure Image #13](enclosure-assembly-13.jpg)
 
