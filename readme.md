@@ -70,7 +70,9 @@ I've tried to maintain as much of the original code as possible; so far, I made 
 * Updated the enclosure files to accommodate the Adafruit Feather board and added the files to a separate folder in the repo
 * Added LASER cutter files for a 12-inch clock face for a wall mounted unit.
 
-For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that maintains time accuracy in different temperature conditions.
+For this version of the project, I selected the [Feather Huzzah 32](https://www.adafruit.com/product/3405); I became a big fan of the board's ESP32 chipset last year, so I knew the selected board had enough horsepower and memory for anything I needed.  For the Real-time Clock (RTC) board, I selected the [DS3231 Precision RTC FeatherWing - RTC Add-on For Feather Boards](https://www.adafruit.com/product/3028); its a high precision board that maintains time accuracy in different temperature conditions. 
+
+Another reason I like this board over the Trinket used in the original project is that the Feather boards come wired with the hardware you need to easily program the board via a USB cable. The Trinket doesn't include that hardware, so you have to push a button on the device to put it in programming mode - which is really hard to do when the device is inside the enclosure.
 
 ## Clock Changes
 
