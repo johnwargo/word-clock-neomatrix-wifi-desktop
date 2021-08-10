@@ -48,42 +48,22 @@ At this point, only three sides of the enclosure are assembled; you need that re
 
 This is where some of this gets tricky because you'll probably start dropping nuts into the enclosure as you try to fit it all together. What did when assembling this was to hold the assumbly upside down (with the nut opening pointing down), with the assembly in this position, I could push the nut into the slot and hold it in place via gravity as I inserted the bolt and twisted it in place. 
 
-- [ ] 
+- [ ] If you 3D printed the pixel guard  (shown in the following figure) then skip this step. If you LASER cut the piece you have some extra work to do before you can complete assembly. When you place the grid over the NeoMatrix, you should notice that the bolt heads mounting the NeoMatrix to the enclosure keep the pixel guard from resting evenly against the NeoMatrix. You must cut or grind the underside of the pixel guard to make room for the bolts. If you look closely at the picture, you can see the indentations I cut into the pixel guard using a Dremel. 
 
 ![Enclosure Image #10](images/enclosure-assembly-10.jpg)
 
-- [ ] 
+- [ ] Using the pixel guard as a template, cut a piece of white paper to the dimensions of the pixel guard. Place the pixel guard on top of the NeoMatrix, then place the piece of paper on top of the pixel guard as shown in the following image.
 
 ![Enclosure Image #11](images/enclosure-assembly-11.jpg)
 
-- [ ] 
+- [ ] Finally, mount the Word Clock face on top of the enclosure using 4 M3x12mm bolts and nuts to complete the installation as shown in the figure.
 
 ![Enclosure Image #12](images/enclosure-assembly-12.jpg)
 
-- [ ] cut a piece of white paper
+Here's a picture of the completely assembled and operational word clock.
 
 ![Enclosure Image #13](images/enclosure-assembly-13.jpg)
 
-- [ ] 
+---
 
-![Enclosure Image #14](images/enclosure-assembly-14.jpg)
-
-- [ ] 
-
-![Enclosure Image #15](images/enclosure-assembly-15.jpg)
-
-- [ ] 
-
-![Enclosure Image #16](images/enclosure-assembly-16.jpg)
-
-- [ ] 
-
-- [ ] 
-
-- [ ] 
-
-Assemble the case
-
-- [ ] 
-
-![]()
+The next step is to install the Word Clock sketch to the device; for complete instructions, refer to [Software](software.md).
