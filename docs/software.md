@@ -2,6 +2,13 @@
 
 This document contains information about the software configuration for the Word Clock. 
 
+## Required Software
+
+Arduino IDE
+Arduino Web IDE
+Visual Studio Code
+
+
 ## Required Libraries
 
 This project uses the following Arduino libraries:
@@ -210,3 +217,5 @@ To use the European rules, comment out the US string as shown in the following e
 // const char rulesDST[] = "US"; // US DST rules
 const char rulesDST[] = "EU";   // EU DST rules
 ```
+
+## Deploying the Software
