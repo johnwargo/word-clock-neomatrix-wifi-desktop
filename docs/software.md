@@ -4,9 +4,9 @@ This document contains information about the software configuration for the Word
 
 ## Required Software
 
-Arduino IDE
-Arduino Web IDE
-Visual Studio Code
+* Arduino IDE
+* Arduino Web IDE
+* Visual Studio Code
 
 
 ## Required Libraries
