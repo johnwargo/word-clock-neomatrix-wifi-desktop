@@ -1,12 +1,16 @@
 # Word Clock (Feather) Software Configuration
 
-This document contains information about the software configuration for the Word Clock. 
+This document contains information about the software configuration and installation for the Word Clock. 
 
 ## Required Software
 
-* Arduino IDE
-* Arduino Web IDE
-* Visual Studio Code
+Depending on your hardware setup and personal preferences, you'll need to make some changes to the Word Clock sketch and deploy it to the clock. You can use any text editor you want to edit the sketch's configuration settings, but you'll need one of the following Arduino development tools to compile and deploy the sketch to the clock
+
+* [Arduino IDE](https://www.arduino.cc/en/software)
+* [Arduino Web IDE](https://create.arduino.cc/editor)
+* [V]isual Studio Code](https://code.visualstudio.com/) with the [Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino) extension.
+
+Follow Adafruit's online instructions for configuring the developer tools for the selected Feather board.
 
 
 ## Required Libraries
@@ -219,3 +223,5 @@ const char rulesDST[] = "EU";   // EU DST rules
 ```
 
 ## Deploying the Software
+
+Once you've made all of the required changes to the configuration file, compile and deploy the sketch to your Word Clock and enjoy!
