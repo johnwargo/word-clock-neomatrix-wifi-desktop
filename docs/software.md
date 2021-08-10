@@ -8,7 +8,7 @@ Depending on your hardware setup and personal preferences, you'll need to make s
 
 * [Arduino IDE](https://www.arduino.cc/en/software)
 * [Arduino Web IDE](https://create.arduino.cc/editor)
-* [V]isual Studio Code](https://code.visualstudio.com/) with the [Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino) extension.
+* [Visual Studio Code](https://code.visualstudio.com/) with the [Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino) extension.
 
 Follow Adafruit's online instructions for configuring the developer tools for the selected Feather board.
 
