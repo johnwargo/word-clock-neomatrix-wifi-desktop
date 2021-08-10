@@ -121,7 +121,7 @@ void setup() {
 
   // set pinmodes
   pinMode(NEOPIN, OUTPUT);
-  
+
   // Initialize the realtime clock
   if (! rtc.begin()) {
     Serial.println("\nUnable to initialize RTC");
@@ -239,15 +239,15 @@ void loop() {
         printTimeValue(theTime);
       }
     }
-
-    // Set the LED brightness based on time of day
-    adjustBrightness(theTime);
-    // and update the display with the new time
-    displayTime(theTime);
-    // uncomment to show moon mode instead!
-    //mode_moon(theTime);
-    delay(100);
   }
+
+  // Set the LED brightness based on time of day
+  adjustBrightness(theTime);
+  // and update the display with the new time
+  displayTime(theTime);
+  // uncomment to show moon mode instead!
+  //mode_moon(theTime);
+  delay(100);
 }
 
 void clearDisplay() {
