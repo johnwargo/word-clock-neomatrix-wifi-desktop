@@ -85,8 +85,8 @@ uint64_t mask;
 
 // Used to define the LEDs to illuminate when connecting to Wi-Fi
 // and the NTP server
-#define LETTER_W 3
-#define LETTER_T 2
+#define LETTER_W 2
+#define LETTER_T 1
 
 char daysOfTheWeek[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
