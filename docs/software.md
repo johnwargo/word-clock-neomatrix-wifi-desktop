@@ -53,6 +53,22 @@ On Linux and macOS, open a terminal window, navigate to the project folder, and 
 cp config.copyme config.h
 ```
 
+If you skip this step, compilation of the sketch will generate a whole bunch of errors starting with:
+
+```text
+world-clock-neomatrix-wifi-desktop:110:54: error: 'NEOPIN' was not declared in this scope
+
+ Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
+
+                                                      ^
+
+world-clock-neomatrix-wifi-desktop:114:29: error: 'LED_CONFIG' was not declared in this scope
+
+                             LED_CONFIG);
+
+                             ^
+```
+
 **Note:** If you ever refresh your local files from the repository, you may want to check the project's `changelog.md` file for any new configuration settings you'll need to copy over to your project's `config.h` file.
 
 ## Configuration Settings
