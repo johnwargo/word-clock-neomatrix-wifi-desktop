@@ -62,7 +62,7 @@ This is where some of this gets tricky because you'll probably start dropping nu
 
 Here's a picture of the completely assembled and operational word clock.
 
-![Enclosure Image #13](images/enclosure-assembly-13.jpg)
+![Enclosure Image #13](images/assembled.jpg)
 
 ---
 
