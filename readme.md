@@ -4,6 +4,8 @@ This repository contains a forked version of the [WORD CLOCK - NeoMatrix 8x8 Des
 
 I forked the project because my personal implementation of the clock got way behind time-wise, so I decided to rebuild the code for a Wi-Fi enabled device (Adafruit Feather) so it can periodically update the real-time clock (RTC) using an [Internet Time Server](https://tf.nist.gov/tf-cgi/servers.cgi) and [Network Time Protocol](https://en.wikipedia.org/wiki/Network_Time_Protocol) (NTP). 
 
+![Finished Project](docs/images/enclosure-assembly-13.jpg)
+
 Here's some details for the original project:
 
 ## Original Project
