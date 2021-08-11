@@ -245,7 +245,7 @@ void loop() {
   adjustBrightness(theTime);
   // and update the display with the new time
   displayTime(theTime);
-  
+
   // uncomment to show moon mode instead!
   //mode_moon(theTime);
 }
