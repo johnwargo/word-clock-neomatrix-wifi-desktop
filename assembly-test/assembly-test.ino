@@ -14,7 +14,7 @@ RTC_DS3231 rtc; // Establish clock object
 Adafruit_NeoMatrix matrix = Adafruit_NeoMatrix(8, 8, NEOPIN,
                             NEO_MATRIX_TOP  + NEO_MATRIX_LEFT +
                             NEO_MATRIX_ROWS + NEO_MATRIX_PROGRESSIVE,
-                            NEO_RGB + NEO_KHZ800);
+                            NEO_RGBW + NEO_KHZ800);
 
 void setup() {
   Serial.begin(115200);
