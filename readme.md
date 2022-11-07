@@ -1,4 +1,4 @@
-# World Clock NeoMatrix Wi-Fi Desktop
+# Word Clock NeoMatrix Wi-Fi Desktop
 
 This repository contains a forked version of the [WORD CLOCK - NeoMatrix 8x8 Desktop Edition](https://github.com/andydoro/WordClock-NeoMatrix8x8) project by [Andy Doro](https://andydoro.com/) & [Dano Wall](https://github.com/danowall).  
 
@@ -10,7 +10,7 @@ Here's some details for the original project:
 
 ## Original Project
 
-* [Andy Doro World Clock Desktop](https://andydoro.com/wordclockdesktop/)
+* [Andy Doro Word Clock Desktop](https://andydoro.com/wordclockdesktop/)
 * [Adafruit Learn Guide](https://learn.adafruit.com/neomatrix-8x8-word-clock/)
 * [GitHub Repository](https://github.com/andydoro/WordClock-NeoMatrix8x8)
 
